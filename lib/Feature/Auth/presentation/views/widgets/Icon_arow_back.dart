@@ -41,7 +41,7 @@ class IconArrowBack extends StatelessWidget {
             },
           ),
         ),
-        const SizedBox(width: 20),
+        SizedBox(width: 20),
         Expanded(
           child: Center(
             child: Text(
