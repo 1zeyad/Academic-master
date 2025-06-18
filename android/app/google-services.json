@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "492081025164",
+    "project_id": "ershad-38c61",
+    "storage_bucket": "ershad-38c61.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492081025164:android:a8bf22e93e4c7b1bbdeba9",
+        "android_client_info": {
+          "package_name": "com.ershad.mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKhL5mJU9r2bwGs-87l2P4DiLEy0vCyLM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492081025164:android:e53d2b21f804d85abdeba9",
+        "android_client_info": {
+          "package_name": "com.example.acdemy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKhL5mJU9r2bwGs-87l2P4DiLEy0vCyLM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
