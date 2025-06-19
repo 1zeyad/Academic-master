@@ -1,3 +1,4 @@
+import 'package:acdemy/core/utiles/assets.dart';
 import 'package:acdemy/generated/l10n.dart';
 import 'package:acdemy/Feature/Auth/presentation/views/StudentLoginView.dart';
 import 'package:acdemy/core/utiles/Text_style.dart';
@@ -59,7 +60,7 @@ class _SplashScreenState extends State<SplashScreen> {
           right: 0,
           child: Center(
               child: SvgPicture.asset(
-            "Assets/SplachView.svg",
+            Assets.ImageSplash,
             width: 160,
             height: 160,
           )),

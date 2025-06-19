@@ -2,6 +2,7 @@ import 'package:acdemy/Feature/Auth/Data/cubit/user_login_cubit.dart';
 import 'package:acdemy/Feature/Auth/presentation/views/Forget_Password_View.dart';
 import 'package:acdemy/core/utiles/Text_style.dart';
 import 'package:acdemy/core/utiles/app_color.dart';
+import 'package:acdemy/core/utiles/assets.dart';
 import 'package:acdemy/core/widgets/CustomButton.dart';
 import 'package:acdemy/core/widgets/CustomPaswordField.dart';
 import 'package:acdemy/core/widgets/CustomTextField.dart';
@@ -9,6 +10,7 @@ import 'package:acdemy/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
 class StudentloginViewBody extends StatefulWidget {
   const StudentloginViewBody({super.key});
 
@@ -39,20 +41,20 @@ class _StudentloginViewBodyState extends State<StudentloginViewBody> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                /// صورة الجامعة
+                // image Login
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.only(right: 30, top: 40),
                     child: Image.asset(
-                      image,
+                      Assets.ImageLogin,
                       height: 200,
                       width: 200,
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 10),
 
-               
                 Text(
                   S.of(context).email,
                   style: const TextStyle(
@@ -62,7 +64,7 @@ class _StudentloginViewBodyState extends State<StudentloginViewBody> {
                 ),
                 const SizedBox(height: 16),
 
-            
+                // email text field
                 CustomTextFormField(
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
@@ -72,7 +74,6 @@ class _StudentloginViewBodyState extends State<StudentloginViewBody> {
                 ),
                 const SizedBox(height: 16),
 
-          
                 Text(
                   S.of(context).password,
                   style: const TextStyle(
@@ -82,11 +83,12 @@ class _StudentloginViewBodyState extends State<StudentloginViewBody> {
                 ),
                 const SizedBox(height: 16),
 
+                // pasword text field
                 CustomPaswordFeild(
-              
                   hintText: S.of(context).password,
                   controller: passwordController,
                 ),
+
                 const SizedBox(height: 10),
 
                 Align(
@@ -105,7 +107,6 @@ class _StudentloginViewBodyState extends State<StudentloginViewBody> {
                 ),
                 const SizedBox(height: 60),
 
-    
                 Center(
                   child: Custombutton(
                     onPressed: () {
@@ -130,6 +131,3 @@ class _StudentloginViewBodyState extends State<StudentloginViewBody> {
     );
   }
 }
-
-String image =
-    "Assets/جامعة-دمياط-كل-ما-تحتاج-معرفته-ai-brush-removebg-lgb16s6i.png";

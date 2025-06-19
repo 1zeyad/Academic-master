@@ -97,14 +97,7 @@ class _CustomButtonNavigationBarState extends State<CustomButtonNavigationBar> {
               InkWell(
                 onTap: () async {
                   await CacheHelper.clearData();
-                  context.read<MyCoursesCubit>().resetState();
-                  context.read<UpdateAvaliableCoursesCubit>().resetState();
-                  context.read<PersonalInfoCubit>().resetState();
-                  context.read<AcademicInfoCubit>().resetState();
-                  context.read<TermGradesCubit>().resetState();
-                  context.read<SelctedCoursesCubit>().resetState();
-                  // context.read<ForgetPasswordCubit>().resetState();
-                  context.read<CourseInfoCubit>().resetState();
+                  resetCubits(context);
 
                   GoRouter.of(context).go('/');
                 },
@@ -120,5 +113,16 @@ class _CustomButtonNavigationBarState extends State<CustomButtonNavigationBar> {
         ),
       ),
     );
+  }
+
+  void resetCubits(BuildContext context) {
+    context.read<MyCoursesCubit>().resetState();
+    context.read<UpdateAvaliableCoursesCubit>().resetState();
+    context.read<PersonalInfoCubit>().resetState();
+    context.read<AcademicInfoCubit>().resetState();
+    context.read<TermGradesCubit>().resetState();
+    context.read<SelctedCoursesCubit>().resetState();
+    context.read<ForgetPasswordCubit>().resetState();
+    context.read<CourseInfoCubit>().resetState();
   }
 }

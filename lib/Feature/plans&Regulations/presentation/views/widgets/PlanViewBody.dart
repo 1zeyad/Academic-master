@@ -34,6 +34,7 @@ class _PlanViewBodyState extends State<PlanViewBody> {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
+                // Dropdown List
                 DropdownButtonFormField<int>(
                   decoration: InputDecoration(
                     hintText: S.of(context).select_level,
@@ -52,7 +53,7 @@ class _PlanViewBodyState extends State<PlanViewBody> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: TColor.primaryColor),
+                      borderSide: const BorderSide(color: TColor.primaryColor),
                     ),
                   ),
                   dropdownColor: Colors.white,
@@ -69,7 +70,11 @@ class _PlanViewBodyState extends State<PlanViewBody> {
                     );
                   }).toList(),
                 ),
+                
+                
+                
                 const SizedBox(height: 20),
+
                 if (filteredData.isNotEmpty)
                   Expanded(
                     child: ListView.builder(
@@ -111,7 +116,7 @@ class _PlanViewBodyState extends State<PlanViewBody> {
                                         DataCell(
                                           Text(
                                             Localizations.localeOf(context)
-                                                        .languageCode ==
+                                                         .languageCode ==
                                                     'en'
                                                 ? course.name.en
                                                 : course.name.ar,
@@ -144,7 +149,7 @@ class _PlanViewBodyState extends State<PlanViewBody> {
             ),
           );
         } else {
-          return SizedBox();
+          return  const SizedBox();
         }
       },
     );

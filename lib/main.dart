@@ -29,26 +29,26 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:acdemy/generated/l10n.dart';
 
 void main() async {
-  
   WidgetsFlutterBinding.ensureInitialized();
+
   await CacheHelper.init();
   Bloc.observer = CustomBlocObserver();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
-
-  await Future.wait(
-      [
-        LocaNotificationServices.init(),
-         PushNotificationServices.init(),]);
-
+  
   runApp(const AcademicData());
-}
 
+  
+  Future.microtask(() async {
+    await LocaNotificationServices.init();
+    await PushNotificationServices.init();
+  });
+}
 class AcademicData extends StatefulWidget {
   const AcademicData({super.key});
 

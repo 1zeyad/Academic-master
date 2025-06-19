@@ -1,48 +1,12 @@
-// import 'dart:developer';
 
-// import 'package:acdemy/core/helper/Services/LocalNotificationServices.dart';
-// import 'package:firebase_core/firebase_core.dart';
-// import 'package:firebase_messaging/firebase_messaging.dart'; // package firebase_core
-
-// // package firebase_notificaion
-
-// @pragma('vm:entry-point') // for back ground notification
-// Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-//   await Firebase.initializeApp();
-// }
-
-// class PushNotificationServices {
-//   static FirebaseMessaging messaging = FirebaseMessaging.instance;
-
-//   static Future<void> init() async {
-//     await messaging.requestPermission();
-
-//     String? token = await messaging.getToken();
-//     log('📱 FCM Token: ${token ?? 'No token'}');
-
-//     // forground notification
-//     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      
-//       if (message.notification != null) {
-//              log("received message with notification payload"+message.notification!.body.toString());
-//         LocaNotificationServices.showBasicNotification(
-     
-//           id: 0,
-//           body: message.notification!.body ?? 'No body',
-//           title: message.notification!.title ?? 'No title',
-//         );
-    
-//       } else {
-//         log(" Received message without notification payload");
-//       }
-//     });
-//   }
-
-//   // for foreground notification
-// }
 
 import 'dart:developer';
+
+import 'package:acdemy/core/helper/Services/Api_Services.dart';
+import 'package:acdemy/core/helper/Services/Dio.dart';
 import 'package:acdemy/core/helper/Services/LocalNotificationServices.dart';
+import 'package:acdemy/core/helper/end_points/Api_endpoints.dart';
+import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
@@ -52,28 +16,46 @@ Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 }
 
 class PushNotificationServices {
+
+  static final  ApiService apiservice =DioConsumer(dio: Dio()) ;
   static FirebaseMessaging messaging = FirebaseMessaging.instance;
 
   static Future<void> init() async {
     await messaging.requestPermission();
-    String? token = await messaging.getToken();
-    log('📱 FCM Token: ${token ?? 'No token'}');
-
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-  
-      if (message.notification != null) {
-        log("received message with notification payload: ${message.notification!.body}");
-
-        LocaNotificationServices.showBasicNotification(
-          id: 0,
-          body: message.notification!.body ?? 'No body',
-          title: message.notification!.title ?? 'No title',
-          // payload: 'firebase notification',
-        );
-      } else {
-        log("Received message without notification payload");
+    await messaging.getToken().then((token) {
+      if (token != null) {
+        sendTokentoServer(FCMtoken: token);
       }
     });
+  messaging.onTokenRefresh.listen(
+      (token) {
+        sendTokentoServer(FCMtoken: token);
+      },
+    );
+
+
+    FirebaseMessaging.onMessage.listen(
+      (RemoteMessage message) {
+        if (message.notification != null) {
+          // var   data = message.data;
+
+          log("received message with notification payload: ${message.notification!.body}");
+
+          LocaNotificationServices.showBasicNotification(
+            id: 0,
+            body: message.notification!.body ?? 'No body',
+            title: message.notification!.title ?? 'No title',
+            payload: message.data['type'],
+          );
+        } else {
+          log("Received message without notification payload");
+        }
+      },
+    );
+  }
+
+  static Future<void> sendTokentoServer({required String FCMtoken}) async {
+  var response = await apiservice.post(ApiEndpoints.sendFcmToken, data: {"token": FCMtoken});
+
   }
 }
-

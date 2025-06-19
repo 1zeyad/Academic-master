@@ -1,6 +1,6 @@
 
 import 'package:acdemy/Feature/Home/Presentation/views/Widgets/CustomButtonNavigation_Bar.dart';
-import 'package:acdemy/Feature/Registration/presention/views/widgets/Custom_Bottom_NavigationBar.dart';
+import 'package:acdemy/Feature/Registration/presention/views/widgets/Custom_Bottom_Registration_NavigationBar.dart';
 import 'package:acdemy/Feature/Registration/presention/views/widgets/RegistrationViewBody.dart';
 import 'package:acdemy/generated/l10n.dart';
 import 'package:acdemy/core/utiles/app_color.dart';

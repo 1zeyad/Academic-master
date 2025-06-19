@@ -1,4 +1,3 @@
-
 import 'package:acdemy/Feature/Auth/Data/repos/repo.dart';
 
 import 'package:acdemy/core/helper/Local_cache/local_cache.dart';
@@ -16,24 +15,15 @@ class UserLoginCubit extends Cubit<UserLoginState> {
       {required String email, required String password}) async {
     emit(UserLoginLoading());
 
-
-  var result = await authrepo.LoginUser(email: email, password: password);
-  result.fold(
-        (e) =>
-            emit(UserLoginFailure(error_message: e.toString())),
-
-           (data) async {
- await CacheHelper.saveData(key: ApiEndpoints.token, value: data.token);
- await CacheHelper.saveData(key: Keys.id_User, value: data.user.id);
-  emit(UserLoginSuccess());
-  
-});
-
+    var result = await authrepo.LoginUser(email: email, password: password);
+    result.fold((e) => emit(UserLoginFailure(error_message: e.toString())),
+        (data) async {
+      await CacheHelper.saveData(key: ApiEndpoints.token, value: data.token);
+      await CacheHelper.saveData(key: Keys.id_User, value: data.user.id);
+      emit(UserLoginSuccess());
+    });
   }
-
+   void resetState() {
+  emit(UserLoginInitial());
 }
-
-
-
-
-
+}

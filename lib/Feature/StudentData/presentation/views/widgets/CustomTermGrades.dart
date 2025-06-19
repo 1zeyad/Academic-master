@@ -44,8 +44,7 @@ Widget CustomTermGrades(
                           style: const TextStyle(fontWeight: FontWeight.bold))),
                 ],
                 rows: course!.courses.map((course) {
-                  return DataRow(
-                    cells: [
+                  return DataRow(cells: [
                     DataCell(Text(course.code)),
                     DataCell(Text(
                       Localizations.localeOf(context).languageCode == 'en'
@@ -54,17 +53,21 @@ Widget CustomTermGrades(
                     )),
                     DataCell(Text(course.creditHours.toString())),
                     DataCell(Text(course.degree.toString())),
-                    DataCell(Text(course.grade)),
+                    DataCell(Text(course.grade!)),
                   ]);
                 }).toList(),
               ),
               const SizedBox(height: 8),
               Padding(
-                padding:const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("${S.of(context).termGpa}: ${course.gpa}    ",
+                        style: TTextstyle.semiBold13),
+                    Text( 
+                        " Cumulative GPA: ${course.cumGpa}   ",
                         style: TTextstyle.semiBold13),
                     Text(
                         "${S.of(context).attemptedHours}: ${course.totalHours}    ",
@@ -72,6 +75,8 @@ Widget CustomTermGrades(
                     Text(
                         "${S.of(context).totalEarnedHours}: ${course.gainedHours}    ",
                         style: TTextstyle.semiBold13),
+
+                   
                   ],
                 ),
               ),

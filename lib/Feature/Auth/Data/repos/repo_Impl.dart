@@ -9,7 +9,6 @@ import 'package:acdemy/core/helper/Services/Api_Services.dart';
 import 'package:acdemy/core/helper/end_points/Api_endpoints.dart';
 import 'package:dartz/dartz.dart';
 
-
 class AuthRepoImpl implements AuthRepo {
   final ApiService apiServices;
 
@@ -29,37 +28,29 @@ class AuthRepoImpl implements AuthRepo {
       return left(e.errMessage);
     }
   }
-  
+
   @override
-  Future<String> Sendotp({required String email}) async{
- 
-  var response =await  apiServices.post(ApiEndpoints.sendotp, data: {"email": email});
+  Future<String> Sendotp({required String email}) async {
+    var response =
+        await apiServices.post(ApiEndpoints.sendotp, data: {"email": email});
     return response["message"];
+  }
+
+  @override
+  Future<String> verifyotp({String? email, required String otp}) async {
+    var response = await apiServices.post(ApiEndpoints.verifyotp,
+        data: {"email": Keys.email_forgetPassword, "otp": otp});
+    return response["message"];
+  }
+
+  @override
+  Future<String> resetpassword(
+      {String? email, String? otp, required String password}) async {
+    var response = await apiServices.post(ApiEndpoints.resetPassword, data: {
+      Keys.email: Keys.email_forgetPassword,
+      Keys.otp: CacheHelper.getData(key: Keys.otp),
+      Keys.password: password
+    });
+    return response["message"];
+  }
 }
-
-  @override
-  Future<String> verifyotp({ String? email, required String otp}) async{
-    var response =await  apiServices.post(ApiEndpoints.verifyotp, data: {
-      "email": Keys.email_forgetPassword,
-       "otp" : otp  
-       
-      });
-    return response["message"];
-  }
-  
-  @override
-  Future<String> resetpassword({String? email, String? otp, required String password})async {
-      var response =  await apiServices.post(ApiEndpoints.resetPassword, data: {
-       Keys.email:Keys.email_forgetPassword,
-       Keys.otp:CacheHelper.getData(key: Keys.otp),
-       Keys.password:password
-      });
-     return response["message"];
-  } 
-  
-   
-  }
-
-  
-
-  

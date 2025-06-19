@@ -21,7 +21,8 @@ class AcademicInfoCubit extends Cubit<AcademicInfoState> {
       emit(AcademicInfoSuccess(academicInfoModel: data));
     });
   }
+
   void resetState() {
-  emit(AcademicInfoInitial());
-}
+    emit(AcademicInfoInitial());
+  }
 }

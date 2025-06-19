@@ -1,4 +1,4 @@
-import 'package:acdemy/Feature/Registration/presention/views/widgets/Custom_Bottom_NavigationBar.dart';
+import 'package:acdemy/Feature/Registration/presention/views/widgets/Custom_Bottom_Registration_NavigationBar.dart';
 import 'package:acdemy/Feature/Registration/presention/views/widgets/SelectionCoursesViewBody.dart';
 
 import 'package:acdemy/generated/l10n.dart';

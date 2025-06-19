@@ -19,7 +19,6 @@ import 'package:acdemy/core/helper/Services/LocalNotificationServices.dart';
 import 'package:acdemy/core/helperFunction/Cache_Data.dart';
 import 'package:acdemy/core/utiles/app_color.dart';
 import 'package:acdemy/generated/l10n.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -33,7 +32,7 @@ class HomeViewBody extends StatelessWidget {
         children: [
           const SizedBox(height: 16),
 
-           InfoPersonal(),
+         const   InfoPersonal(),
 
           const SizedBox(height: 10),
           Container(
@@ -114,8 +113,7 @@ class HomeViewBody extends StatelessWidget {
                     if (getUserAcademicInfo()!.gainedHours < 60) {
                       LocaNotificationServices.showBasicNotification(
                         id: 1,
-                        body: 'You have not completed your training hours ' +
-                            getUserAcademicInfo()!.gainedHours.toString(),
+                        body: 'You have not completed your training hours ${getUserAcademicInfo()!.gainedHours}',
                         title: 'Admin',
                         payload: "training",
                       );

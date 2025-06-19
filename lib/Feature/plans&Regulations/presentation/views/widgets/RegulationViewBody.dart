@@ -68,10 +68,10 @@ class _RegulationViewBodyState extends State<RegulationViewBody> {
                     ),
                   ),
                   value: selectedSection,
-                  items: sectionNames.entries.map((entry) {
+                  items: sectionNames.entries.map((e) {
                     return DropdownMenuItem(
-                      value: entry.key,
-                      child: Text(entry.value),
+                      value: e.key,
+                      child: Text(e.value),
                     );
                   }).toList(),
                   onChanged: (value) {

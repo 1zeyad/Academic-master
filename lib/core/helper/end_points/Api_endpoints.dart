@@ -1,8 +1,7 @@
 class ApiEndpoints {
   static const String token = "token";
-  static const String baseUrl = 'http://192.168.1.5:3000/api/';
 
- 
+  static const String baseUrl = 'http://192.168.1.5:3000/api/';
 
   static const String login = 'login';
   static const String personalInfo = 'me/personal-info';
@@ -17,7 +16,7 @@ class ApiEndpoints {
   static const String sendotp = 'otp';
   static const String verifyotp = 'verify-otp';
   static const String resetPassword = 'reset-password';
-
+  static const String sendFcmToken = 'fcm-tokens';
   static const String getRegulation = "me/regulation";
   static const String Warnings = "warnings";
   static const String registrationStatus = "registrations/status";
@@ -37,15 +36,15 @@ class Keys {
   static const String KAvailableCourses = "myCourses";
 
   static const String KRegistration = "myRegistration";
-  
-  static const String registrationStatus ="registrationStatus";
+
+  static const String registrationStatus = "registrationStatus";
 
   static const String email_forgetPassword = 'zeyadmossa1298@gmail.com';
 
   static String secondEmail = 'manarraafat1212@gmail.com';
- static String passwordd ="12345678@Ab";
-  
-// abdoeid2121@gmail.com 
+  static String passwordd = "12345678@Ab";
+
+// abdoeid2121@gmail.com
 
   static const String otp = "otp";
 }

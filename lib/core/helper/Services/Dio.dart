@@ -60,13 +60,12 @@ class DioConsumer extends ApiService {
   @override
   Future post(String url, {String? token, Object? data, Map<String, dynamic>? queryparms}) async {
     try {
-      log("Executing POST request: $url");
 
       var  response = await dio.post(url, data: data, queryParameters: queryparms);
-       log("Executing POST request: $url");
+    
       return response.data;
     } on DioException catch (e) {
-      log("DioException2222222 in POST: ${e.message}");
+    
        HandleException(e);
     
     } 

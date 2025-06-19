@@ -4,7 +4,6 @@ import 'package:acdemy/generated/l10n.dart';
 import 'package:acdemy/Feature/plans&Regulations/presentation/views/widgets/PlanViewBody.dart';
 import 'package:acdemy/core/helper/Services/Dio.dart';
 import 'package:acdemy/core/helperFunction/AppBar.dart';
-import 'package:acdemy/core/helperFunction/inside_AppBar.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

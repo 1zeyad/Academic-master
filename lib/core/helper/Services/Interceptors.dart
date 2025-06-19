@@ -16,10 +16,10 @@ void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     options.headers['Authorization'] = 'Bearer $token';
   }
 
-  String? language = CacheHelper.getData(key: 'lang'); 
-  // if (language != null) {
-  //   options.headers['Accept-Language'] = "ar"; 
-  // }
+  // String? language = CacheHelper.getData(key: 'lang'); 
+  // // if (language != null) {
+  // //   options.headers['Accept-Language'] = "ar"; 
+  // // }
     
     options.headers['Accept-Language'] = "ar"; 
 

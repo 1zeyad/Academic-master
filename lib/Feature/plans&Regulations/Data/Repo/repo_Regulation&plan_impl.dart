@@ -30,9 +30,9 @@ class RepoImpl4 extends Repo4 {
     try {
       var data = await apiService.get(ApiEndpoints.getmyplans);
 
-      List<PlanModel> MyPlans = parsePlans(data);
+      List<PlanModel> myPlans = parsePlans(data);
 
-      return right(MyPlans);
+      return right(myPlans);
     } on ServerException catch (e) {
       return left(e.errMessage);
     }

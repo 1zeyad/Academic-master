@@ -28,4 +28,7 @@ class RegulationCubit extends Cubit<RegulationState> {
 
       
   }
+   void resetState() {
+  emit(RegulationInitial());
+}
 }

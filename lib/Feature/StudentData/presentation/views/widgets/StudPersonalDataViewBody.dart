@@ -1,4 +1,3 @@
-import 'package:acdemy/Feature/Home/Presentation/views/Widgets/Custom_Info_Box.dart';
 import 'package:acdemy/Feature/StudentData/data/Model/personal_info.dart';
 import 'package:acdemy/Feature/StudentData/data/cubit/personal_info_cubit.dart';
 import 'package:acdemy/Feature/StudentData/presentation/views/widgets/ProfileItem.dart';
@@ -25,12 +24,12 @@ class StudPersonalDataViewBody extends StatefulWidget {
 
 
 class _StudPersonalDataViewBodyState extends State<StudPersonalDataViewBody> {
-  @override
+
 @override
 void initState() {
   super.initState();
   final cubit = context.read<PersonalInfoCubit>();
-  if (cubit.state is! PersonalInfoSuccess) {
+  if (cubit.state is !PersonalInfoSuccess) {
     cubit.getPersonalInfo();
   }
 }
@@ -44,7 +43,9 @@ void initState() {
       builder: (context, state) {
         if (state is PersonalInfoLoading) {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              color: TColor.primaryColor,
+            ),
           );
         } else if (state is PersonalInfoSuccess) {
           final PersonalInfo personalInfo = state.personalInfoModel;
@@ -164,8 +165,8 @@ class Personal_Image extends StatelessWidget {
       alignment: Alignment.bottomRight,
       children: [
         Container(
-          padding: EdgeInsets.all(4),
-          decoration: BoxDecoration(
+          padding: const EdgeInsets.all(4),
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: Colors.white,
           ),

@@ -17,4 +17,7 @@ class PlanCubit extends Cubit<PlanState> {
       (Myplans) => emit(PlanSuccess(Plans: Myplans)),
     );
   }
+   void resetState() {
+  emit(PlanInitial());
+}
 }
