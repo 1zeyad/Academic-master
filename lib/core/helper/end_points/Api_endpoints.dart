@@ -7,7 +7,7 @@ class ApiEndpoints {
   static const String personalInfo = 'me/personal-info';
   static const String academicInfo = 'academic-info/me';
   static const String termGrades = "semesters/me";
-  static const String availableCourses = "recommended-courses";
+  static const String availableCourses = "available-courses";
   static const String register = 'registrations';
   static const String myCourses = 'registrations/me';
   static const String changePassword = 'password';
@@ -19,7 +19,7 @@ class ApiEndpoints {
   static const String sendFcmToken = 'fcm-tokens';
   static const String getRegulation = "me/regulation";
   static const String Warnings = "warnings";
-  static const String registrationStatus = "registrations/status";
+  static const String registrationStatus = "registrations/settings";
 }
 
 class Keys {

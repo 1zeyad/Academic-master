@@ -44,7 +44,7 @@ class _StudentloginViewBodyState extends State<StudentloginViewBody> {
                 // image Login
                 Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 30, top: 40),
+                    padding: const EdgeInsets.only(right: 21, top: 40),
                     child: Image.asset(
                       Assets.ImageLogin,
                       height: 200,

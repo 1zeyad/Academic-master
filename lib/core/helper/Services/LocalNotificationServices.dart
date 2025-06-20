@@ -25,7 +25,7 @@ static onTap(NotificationResponse notificationResponse) {
 
   static Future init() async {
     InitializationSettings settings =const  InitializationSettings(
-        android: AndroidInitializationSettings("@mipmap/ic_launcher"),
+        android: AndroidInitializationSettings("ic_launcher"),
         iOS: DarwinInitializationSettings());
     flutterLocalNotificationsPlugin.initialize(settings,
         onDidReceiveNotificationResponse:

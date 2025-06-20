@@ -1,12 +1,9 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:acdemy/Feature/StudentData/data/cubit/personal_info_cubit.dart';
-import 'package:acdemy/Feature/StudentData/data/repo/repo_impl.dart';
-import 'package:acdemy/core/helper/Services/Dio.dart';
-import 'package:dio/dio.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:go_router/go_router.dart';
 import 'package:acdemy/Feature/Home/Presentation/views/Widgets/HomeAppBar.dart';
 import 'package:acdemy/Feature/Home/Presentation/views/Widgets/HomeViewBody.dart';
@@ -30,10 +27,10 @@ class _HomeViewState extends State<HomeView> {
     notificationSubscription =
         LocaNotificationServices.streamController.stream.listen(
       (notificationResponse) {
-        GoRouter.of(context).push(Registrationview.routeName);
-        // if (notificationResponse.payload == 'firebase notification') {
-        //   GoRouter.of(context).push(Registrationview.routeName);
-        // }
+    
+        if (notificationResponse.payload == 'REGISTRATION') {
+          GoRouter.of(context).push(Registrationview.routeName);
+        }
       },
     );
   }

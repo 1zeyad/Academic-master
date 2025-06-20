@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:acdemy/Feature/Registration/Data/Models/AvaliableCourses.dart';
 import 'package:acdemy/Feature/StudentData/data/Model/Acdemic_Info.dart';
 import 'package:acdemy/Feature/StudentData/data/Model/personal_info.dart';
 import 'package:acdemy/core/helper/Local_cache/local_cache.dart';

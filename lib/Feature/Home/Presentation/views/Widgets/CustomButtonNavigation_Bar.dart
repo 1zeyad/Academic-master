@@ -8,16 +8,9 @@ import 'package:acdemy/Feature/Registration/Data/cubit/update_avaliable_courses_
 import 'package:acdemy/Feature/StudentData/data/cubit/academic_info_cubit.dart';
 import 'package:acdemy/Feature/StudentData/data/cubit/personal_info_cubit.dart';
 import 'package:acdemy/Feature/StudentData/data/cubit/term_grades_cubit.dart';
-import 'package:acdemy/Feature/StudentData/data/repo/repo_impl.dart';
-
 import 'package:acdemy/Feature/StudentData/presentation/views/StudPersonalDataView.dart';
 import 'package:acdemy/core/helper/Local_cache/local_cache.dart';
-import 'package:acdemy/core/helper/Services/Dio.dart';
-import 'package:acdemy/core/helper/end_points/Api_endpoints.dart';
-import 'package:acdemy/core/helperFunction/reset_services.dart';
-
 import 'package:acdemy/core/utiles/app_color.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -39,9 +32,9 @@ class _CustomButtonNavigationBarState extends State<CustomButtonNavigationBar> {
       personalcubit.getPersonalInfo();
     }
 
-    final academicCubit = context.read<UpdateAvaliableCoursesCubit>();
-    if (academicCubit.state is UpdateAvaliableCoursesInitial) {
-      academicCubit.getavailableCourses();
+    final updateAvaliableCoursesCubit= context.read<UpdateAvaliableCoursesCubit>();
+    if (updateAvaliableCoursesCubit.state is UpdateAvaliableCoursesInitial) {
+      updateAvaliableCoursesCubit.getavailableCourses();
     }
   }
 

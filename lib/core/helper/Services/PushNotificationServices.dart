@@ -23,6 +23,7 @@ class PushNotificationServices {
   static Future<void> init() async {
     await messaging.requestPermission();
     await messaging.getToken().then((token) {
+    log("fcm token is ${token}");
       if (token != null) {
         sendTokentoServer(FCMtoken: token);
       }
