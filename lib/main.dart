@@ -3,6 +3,7 @@ import 'package:acdemy/Feature/Auth/Data/repos/repo_impl.dart';
 import 'package:acdemy/Feature/Registration/Data/Repo/Registration_Repo_impl.dart';
 import 'package:acdemy/Feature/Registration/Data/cubit/course_info_cubit.dart';
 import 'package:acdemy/Feature/Registration/Data/cubit/my_courses_cubit.dart';
+import 'package:acdemy/Feature/Registration/Data/cubit/recommend_course_cubit.dart' show RecommendCourseCubit;
 import 'package:acdemy/Feature/StudentData/data/cubit/academic_info_cubit.dart';
 import 'package:acdemy/Feature/StudentData/data/cubit/personal_info_cubit.dart';
 import 'package:acdemy/Feature/StudentData/data/cubit/term_grades_cubit.dart';
@@ -114,7 +115,12 @@ class _AcademicDataState extends State<AcademicData> {
         BlocProvider(
             lazy: true,
             create: (context) => TermGradesCubit(
-                repo: RepoImpl(apiService: DioConsumer(dio: Dio()))))
+                repo: RepoImpl(apiService: DioConsumer(dio: Dio())))),
+
+        BlocProvider(
+      create: (context) => RecommendCourseCubit(
+          registrationRepo:
+              RegistrationRepoImpl(apiService: DioConsumer(dio: Dio()))))
       ],
       child: 
       MaterialApp.router(

@@ -8,22 +8,31 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RecommendedCoursesView extends StatelessWidget {
+class RecommendedCoursesView extends StatefulWidget {
   const RecommendedCoursesView({super.key});
 
   @override
   static const String routename = '/RecommendedCourseViewBody';
+
+  @override
+  State<RecommendedCoursesView> createState() => _RecommendedCoursesViewState();
+}
+
+class _RecommendedCoursesViewState extends State<RecommendedCoursesView> {
+  @override
+    void initState() {
+    super.initState();
+    final cubit = context.read<RecommendCourseCubit>();
+    if (cubit.state is RecommendCourseInitial) {
+      cubit.getMyRecommendedCourses();
+    }
+  }
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => RecommendCourseCubit(
-          registrationRepo:
-              RegistrationRepoImpl(apiService: DioConsumer(dio: Dio())))
-        ..getMyRecommendedCourses(),
-      child: Scaffold(
+    return Scaffold(
         appBar: Custom_App_Bar(
             context: context, text: S.of(context).recommendedCourses),
         body: const RecommendedCourseViewBody(),
-      ),
+      
     );
   }
 }

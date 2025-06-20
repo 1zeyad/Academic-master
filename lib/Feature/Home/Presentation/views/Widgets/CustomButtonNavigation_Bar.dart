@@ -4,6 +4,7 @@ import 'package:acdemy/Feature/Home/Presentation/views/HomeView.dart';
 import 'package:acdemy/Feature/Registration/Data/cubit/Selcted_courses_cubit.dart';
 import 'package:acdemy/Feature/Registration/Data/cubit/course_info_cubit.dart';
 import 'package:acdemy/Feature/Registration/Data/cubit/my_courses_cubit.dart';
+import 'package:acdemy/Feature/Registration/Data/cubit/recommend_course_cubit.dart';
 import 'package:acdemy/Feature/Registration/Data/cubit/update_avaliable_courses_cubit.dart';
 import 'package:acdemy/Feature/StudentData/data/cubit/academic_info_cubit.dart';
 import 'package:acdemy/Feature/StudentData/data/cubit/personal_info_cubit.dart';
@@ -92,7 +93,7 @@ class _CustomButtonNavigationBarState extends State<CustomButtonNavigationBar> {
                   await CacheHelper.clearData();
                   resetCubits(context);
 
-                  GoRouter.of(context).go('/');
+                  GoRouter.of(context).go(StudentLoginView.routename);
                 },
                 child: Icon(
                   Icons.logout,
@@ -117,5 +118,7 @@ class _CustomButtonNavigationBarState extends State<CustomButtonNavigationBar> {
     context.read<SelctedCoursesCubit>().resetState();
     context.read<ForgetPasswordCubit>().resetState();
     context.read<CourseInfoCubit>().resetState();
+    context.read<RecommendCourseCubit>().resetState();
+    
   }
 }

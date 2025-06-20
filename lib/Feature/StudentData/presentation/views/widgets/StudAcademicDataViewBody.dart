@@ -1,6 +1,7 @@
 import 'package:acdemy/Feature/Home/Presentation/views/Widgets/GraduationInfo.dart';
 import 'package:acdemy/Feature/StudentData/data/Model/Acdemic_Info.dart';
 import 'package:acdemy/Feature/StudentData/data/cubit/academic_info_cubit.dart';
+import 'package:acdemy/core/utiles/app_color.dart';
 import 'package:acdemy/generated/l10n.dart';
 import 'package:acdemy/Feature/StudentData/presentation/views/widgets/ProfileItem.dart';
 import 'package:acdemy/core/widgets/CustomErrorMessage.dart';
@@ -34,7 +35,9 @@ class _StudAcademicDataViewBodyState extends State<StudAcademicDataViewBody> {
       },
       builder: (context, state) {
         if (state is AcademicInfoLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator(
+            color: TColor.primaryColor,
+          ));
         } else if (state is AcademicInfoSuccess) {
           final academicInfo = state.academicInfoModel;
 

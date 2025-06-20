@@ -57,7 +57,7 @@ class HomeViewBody extends StatelessWidget {
                   iconColor: Colors.white,
                   textColor: Colors.white,
                   onTap: () {
-                    context.read<TermGradesCubit>().getTermGrades();
+                    // context.read<TermGradesCubit>().getTermGrades();
                     GoRouter.of(context).push(TermGradesView.routeName);
                   },
                 ),
@@ -110,7 +110,7 @@ class HomeViewBody extends StatelessWidget {
                   icon: Icons.event,
                   label: S.of(context).training,
                   onTap: () {
-                    if (getUserAcademicInfo()!.gainedHours < 60) {
+                    if (getUserAcademicInfo()!.gainedHours < 70) {
                       LocaNotificationServices.showBasicNotification(
                         id: 1,
                         body: 'You have not completed your training hours ${getUserAcademicInfo()!.gainedHours}',
@@ -126,7 +126,7 @@ class HomeViewBody extends StatelessWidget {
                     icon: Icons.warning,
                     label: S.of(context).academicAlert,
                     onTap: () {
-                      context.read<AcademicInfoCubit>().getAcademicInfo();
+                      // context.read<AcademicInfoCubit>().getAcademicInfo();
                       GoRouter.of(context).push(AcademicAlertView.routename);
                     }),
               ],
