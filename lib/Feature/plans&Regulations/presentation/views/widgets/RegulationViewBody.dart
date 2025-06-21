@@ -16,6 +16,50 @@ class RegulationViewBody extends StatefulWidget {
 class _RegulationViewBodyState extends State<RegulationViewBody> {
   String? selectedSection;
   var Regulation_data;
+  String _getTranslatedKey(String key) {
+    switch (key) {
+      case 'maxRegistrationHours':
+        return S.of(context).maxRegistrationHours;
+      case 'normalRegistrationHours':
+        return S.of(context).normalRegistrationHours;
+      case 'minRegistrationHours':
+        return S.of(context).minRegistrationHours;
+      case 'gpaForMaxHours':
+        return S.of(context).gpaForMaxHours;
+      case 'summerTermHours':
+        return S.of(context).summerTermHours;
+      case 'regulationHours':
+        return S.of(context).regulationHours;
+      case 'levelsCount':
+        return S.of(context).levelsCount;
+      case 'semestersWithoutGpaRules':
+        return S.of(context).semestersWithoutGpaRules;
+      case 'mandatoryHours':
+        return S.of(context).mandatoryHours;
+      case 'optionalHours':
+        return S.of(context).optionalHours;
+      case 'requiredHours':
+        return S.of(context).requiredHours;
+      case 'creditHours':
+        return S.of(context).creditHours;
+      case 'maxRetakeGrade':
+        return S.of(context).maxRetakeGrade;
+      case 'maxRetakeCourses':
+        return S.of(context).maxRetakeCourses;
+      case 'maxConsecutiveWarnings':
+        return S.of(context).maxConsecutiveWarnings;
+      case 'maxYearsLevelOne':
+        return S.of(context).maxYearsLevelOne;
+      case 'minGpaForGraduation':
+        return S.of(context).minGpaForGraduation;
+      case 'gradProjectRequirements':
+        return S.of(context).gradProjectRequirements;
+      case 'trainingRequirements':
+        return S.of(context).trainingRequirements;
+      default:
+        return key;
+    }
+  }
 
   Map<String, String> getSectionNames(BuildContext context) {
     return {
@@ -120,7 +164,8 @@ class _RegulationViewBodyState extends State<RegulationViewBody> {
             children: [
               Text(
                 sectionTitle,
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               const SizedBox(height: 10),
               _buildDataTable(key, data),
@@ -141,11 +186,33 @@ class _RegulationViewBodyState extends State<RegulationViewBody> {
             label: Text(S.of(context).hours,
                 style: TextStyle(fontWeight: FontWeight.bold))),
       ];
-      final rows = data.entries.map((entry) {
-        return DataRow(cells: [
-          DataCell(Text(entry.key)),
-          DataCell(Text(entry.value.toString())),
-        ]);
+      final rows = data.entries.expand((entry) {
+        if (entry.value is Map<String, dynamic>) {
+          final subMap = entry.value as Map<String, dynamic>;
+          return [
+            DataRow(cells: [
+              DataCell(Text(_getTranslatedKey(entry.key),
+                  style: const TextStyle(fontWeight: FontWeight.bold))),
+              const DataCell(Text("")),
+            ]),
+            ...subMap.entries.map((subEntry) {
+              return DataRow(cells: [
+                DataCell(Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: Text(_getTranslatedKey(subEntry.key)),
+                )),
+                DataCell(Text(subEntry.value.toString())),
+              ]);
+            }),
+          ];
+        } else {
+          return [
+            DataRow(cells: [
+              DataCell(Text(_getTranslatedKey(entry.key))),
+              DataCell(Text(entry.value.toString())),
+            ])
+          ];
+        }
       }).toList();
       return SingleChildScrollView(
         scrollDirection: Axis.horizontal,
@@ -209,4 +276,3 @@ class _RegulationViewBodyState extends State<RegulationViewBody> {
     return const SizedBox.shrink();
   }
 }
-

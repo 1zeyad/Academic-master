@@ -12,7 +12,8 @@ class StudAcademicDataViewBody extends StatefulWidget {
   const StudAcademicDataViewBody({super.key});
 
   @override
-  State<StudAcademicDataViewBody> createState() => _StudAcademicDataViewBodyState();
+  State<StudAcademicDataViewBody> createState() =>
+      _StudAcademicDataViewBodyState();
 }
 
 class _StudAcademicDataViewBodyState extends State<StudAcademicDataViewBody> {
@@ -35,14 +36,16 @@ class _StudAcademicDataViewBodyState extends State<StudAcademicDataViewBody> {
       },
       builder: (context, state) {
         if (state is AcademicInfoLoading) {
-          return const Center(child: CircularProgressIndicator(
+          return const Center(
+              child: CircularProgressIndicator(
             color: TColor.primaryColor,
           ));
         } else if (state is AcademicInfoSuccess) {
           final academicInfo = state.academicInfoModel;
 
           final int completedHours = academicInfo.gainedHours;
-          final int totalHours = academicInfo.regulation.academicRequirements.regulationHours;
+          final int totalHours =
+              academicInfo.regulation.academicRequirements.regulationHours;
           double progress = completedHours / totalHours;
           int remainingHours = totalHours - completedHours;
 
@@ -53,7 +56,8 @@ class _StudAcademicDataViewBodyState extends State<StudAcademicDataViewBody> {
                 const SizedBox(height: 10),
                 AcademicInfoDetails(academicInfo: academicInfo),
                 const SizedBox(height: 70),
-                GraduationInfo(progress: progress, remainingHours: remainingHours),
+                GraduationInfo(
+                    progress: progress, remainingHours: remainingHours),
               ],
             ),
           );
@@ -64,6 +68,7 @@ class _StudAcademicDataViewBodyState extends State<StudAcademicDataViewBody> {
     );
   }
 }
+
 class AcademicInfoDetails extends StatelessWidget {
   final AcademicInfo academicInfo;
 
@@ -81,28 +86,26 @@ class AcademicInfoDetails extends StatelessWidget {
             value: academicInfo.level,
           ),
           const Divider(height: 8, indent: 3, endIndent: 7),
-
           ProfileItem(
             icon: Icons.calendar_month,
             label: S.of(context).field,
-            value: academicInfo.gainedHours < 60 ? "General" : "cs",
+            value: academicInfo.gainedHours < 60
+                ? S.of(context).general
+                : S.of(context).cs,
           ),
           const Divider(height: 8, indent: 3, endIndent: 7),
-
           ProfileItem(
             icon: Icons.account_balance,
             label: S.of(context).attemptedHours,
             value: academicInfo.attemptedHours,
           ),
           const Divider(height: 8, indent: 3, endIndent: 7),
-
           ProfileItem(
             icon: Icons.account_balance,
             label: S.of(context).gainedHours,
             value: academicInfo.gainedHours,
           ),
           const Divider(height: 8, indent: 3, endIndent: 7),
-
           ProfileItem(
             icon: Icons.account_tree_outlined,
             label: S.of(context).gpa,

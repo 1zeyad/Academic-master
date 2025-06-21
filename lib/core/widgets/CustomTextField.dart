@@ -30,7 +30,6 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      
       onChanged: onChanged,
       controller: controller,
       obscureText: obscureText,
@@ -43,7 +42,7 @@ class CustomTextFormField extends StatelessWidget {
         if (isEmail) {
           final emailRegex = RegExp(r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
           if (!emailRegex.hasMatch(value)) {
-            return  "invalinemail";        //S.of(context).invalidEmail
+            return S.of(context).invalidEmail;
           }
         } else {
           if (value.length < 4 || value.length > 30) {

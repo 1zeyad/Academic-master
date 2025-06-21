@@ -173,7 +173,7 @@ class S {
   /// `Welcome Back !`
   String get welcomeBack {
     return Intl.message(
-      'Welcome Back ',
+      'Welcome Back !',
       name: 'welcomeBack',
       desc: '',
       args: [],
@@ -1215,6 +1215,286 @@ class S {
     return Intl.message(
       'Second Semester',
       name: 'secondSemester',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Max Registration Hours`
+  String get maxRegistrationHours {
+    return Intl.message(
+      'Max Registration Hours',
+      name: 'maxRegistrationHours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Regulation Hours`
+  String get regulationHours {
+    return Intl.message(
+      'Regulation Hours',
+      name: 'regulationHours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Required Hours`
+  String get requiredHours {
+    return Intl.message(
+      'Required Hours',
+      name: 'requiredHours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Normal Registration Hours`
+  String get normalRegistrationHours {
+    return Intl.message(
+      'Normal Registration Hours',
+      name: 'normalRegistrationHours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Min Registration Hours`
+  String get minRegistrationHours {
+    return Intl.message(
+      'Min Registration Hours',
+      name: 'minRegistrationHours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GPA for Max Hours`
+  String get gpaForMaxHours {
+    return Intl.message(
+      'GPA for Max Hours',
+      name: 'gpaForMaxHours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Summer Term Hours`
+  String get summerTermHours {
+    return Intl.message(
+      'Summer Term Hours',
+      name: 'summerTermHours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Levels Count`
+  String get levelsCount {
+    return Intl.message(
+      'Levels Count',
+      name: 'levelsCount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Semesters Without GPA Rules`
+  String get semestersWithoutGpaRules {
+    return Intl.message(
+      'Semesters Without GPA Rules',
+      name: 'semestersWithoutGpaRules',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mandatory Hours`
+  String get mandatoryHours {
+    return Intl.message(
+      'Mandatory Hours',
+      name: 'mandatoryHours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Optional Hours`
+  String get optionalHours {
+    return Intl.message(
+      'Optional Hours',
+      name: 'optionalHours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Max Retake Grade`
+  String get maxRetakeGrade {
+    return Intl.message(
+      'Max Retake Grade',
+      name: 'maxRetakeGrade',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Max Retake Courses`
+  String get maxRetakeCourses {
+    return Intl.message(
+      'Max Retake Courses',
+      name: 'maxRetakeCourses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Max Consecutive Warnings`
+  String get maxConsecutiveWarnings {
+    return Intl.message(
+      'Max Consecutive Warnings',
+      name: 'maxConsecutiveWarnings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Max Years in Level 1`
+  String get maxYearsLevelOne {
+    return Intl.message(
+      'Max Years in Level 1',
+      name: 'maxYearsLevelOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Min GPA for Graduation`
+  String get minGpaForGraduation {
+    return Intl.message(
+      'Min GPA for Graduation',
+      name: 'minGpaForGraduation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have not completed your training hours`
+  String get incompleteTrainingHours {
+    return Intl.message(
+      'You have not completed your training hours',
+      name: 'incompleteTrainingHours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Registration is Closed`
+  String get registrationClosed {
+    return Intl.message(
+      'Registration is Closed',
+      name: 'registrationClosed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `First`
+  String get first {
+    return Intl.message(
+      'First',
+      name: 'first',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Second`
+  String get second {
+    return Intl.message(
+      'Second',
+      name: 'second',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email address`
+  String get invalidEmail {
+    return Intl.message(
+      'Invalid email address',
+      name: 'invalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `admin`
+  String get admin {
+    return Intl.message(
+      'admin',
+      name: 'admin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `summer Term`
+  String get summerTerm {
+    return Intl.message(
+      'summer Term',
+      name: 'summerTerm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `General`
+  String get general {
+    return Intl.message(
+      'General',
+      name: 'general',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Male`
+  String get male {
+    return Intl.message(
+      'Male',
+      name: 'male',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Female`
+  String get female {
+    return Intl.message(
+      'Female',
+      name: 'female',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Graduation Project Requirements`
+  String get gradProjectRequirements {
+    return Intl.message(
+      'Graduation Project Requirements',
+      name: 'gradProjectRequirements',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Training Requirements`
+  String get trainingRequirements {
+    return Intl.message(
+      'Training Requirements',
+      name: 'trainingRequirements',
       desc: '',
       args: [],
     );

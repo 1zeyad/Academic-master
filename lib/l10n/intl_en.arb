@@ -115,5 +115,36 @@
     "classNumber": "Warning Number",
     "academicYear": "Academic Year",
     "firstSemester": "First Semester",
-    "secondSemester": "Second Semester"
+    "secondSemester": "Second Semester",
+    "maxRegistrationHours": "Max Registration Hours",
+    "regulationHours": "Regulation Hours",
+    "requiredHours": "Required Hours",
+    "normalRegistrationHours": "Normal Registration Hours",
+    "minRegistrationHours": "Min Registration Hours",
+    "gpaForMaxHours": "GPA for Max Hours",
+    "summerTermHours": "Summer Term Hours",
+    "levelsCount": "Levels Count",
+    "semestersWithoutGpaRules": "Semesters Without GPA Rules",
+    "mandatoryHours": "Mandatory Hours",
+    "optionalHours": "Optional Hours",
+    "maxRetakeGrade": "Max Retake Grade",
+    "maxRetakeCourses": "Max Retake Courses",
+    "maxConsecutiveWarnings": "Max Consecutive Warnings",
+    "maxYearsLevelOne": "Max Years in Level 1",
+    "minGpaForGraduation": "Min GPA for Graduation",
+    "incompleteTrainingHours": "You have not completed your training hours",
+    "registrationClosed": "Registration is Closed",
+    "first": "First",
+    "second": "Second",
+    "invalidEmail": "Invalid email address",
+    "admin" : "admin",
+    "summerTerm" : "summer Term",
+    "general": "General",
+    "male": "Male",
+    "female": "Female",
+    "gradProjectRequirements": "Graduation Project Requirements",
+    "trainingRequirements": "Training Requirements"
+
+
+
 }

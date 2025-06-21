@@ -23,7 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "academicAlert":
-            MessageLookupByLibrary.simpleMessage("تنبيهات أكاديمية"),
+            MessageLookupByLibrary.simpleMessage("إنذارات أكاديمية"),
         "academicData":
             MessageLookupByLibrary.simpleMessage("البيانات الأكاديمية"),
         "academicInfo":
@@ -33,6 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "academicTraining":
             MessageLookupByLibrary.simpleMessage("التدريب الأكاديمي"),
         "academicYear": MessageLookupByLibrary.simpleMessage("العام الدراسي"),
+        "admin": MessageLookupByLibrary.simpleMessage("المسؤول"),
         "attemptedHours":
             MessageLookupByLibrary.simpleMessage("الساعات المسجلة"),
         "basicScienceRequirements":
@@ -85,8 +86,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "facultyRequirements":
             MessageLookupByLibrary.simpleMessage("متطلبات الكلية"),
         "fall": MessageLookupByLibrary.simpleMessage("الخريف"),
+        "female": MessageLookupByLibrary.simpleMessage("أنثى"),
         "field": MessageLookupByLibrary.simpleMessage("القسم"),
         "fieldIsRequired": MessageLookupByLibrary.simpleMessage("مطلوب"),
+        "first": MessageLookupByLibrary.simpleMessage("الأول"),
         "firstSemester": MessageLookupByLibrary.simpleMessage("الأول"),
         "forgetPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
@@ -99,7 +102,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "from": MessageLookupByLibrary.simpleMessage("من"),
         "gainedHours": MessageLookupByLibrary.simpleMessage("الساعات المكتسبة"),
         "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
+        "general": MessageLookupByLibrary.simpleMessage("عام"),
         "gpa": MessageLookupByLibrary.simpleMessage("المعدل التراكمي"),
+        "gpaForMaxHours": MessageLookupByLibrary.simpleMessage(
+            "المعدل المطلوب للحصول على الحد الأقصى"),
+        "gradProjectRequirements":
+            MessageLookupByLibrary.simpleMessage("متطلبات مشروع التخرج"),
         "grade": MessageLookupByLibrary.simpleMessage("التقدير"),
         "grades": MessageLookupByLibrary.simpleMessage("التقديرات"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
@@ -108,14 +116,36 @@ class MessageLookup extends MessageLookupByLibrary {
         "hours": MessageLookupByLibrary.simpleMessage("ساعات"),
         "hoursToGraduate":
             MessageLookupByLibrary.simpleMessage("ساعات\nللتخرج"),
+        "incompleteTrainingHours": MessageLookupByLibrary.simpleMessage(
+            "لم تقم بإتمام ساعات التدريب بعد"),
         "info": MessageLookupByLibrary.simpleMessage("معلومات"),
+        "invalidEmail":
+            MessageLookupByLibrary.simpleMessage("البريد الإلكتروني غير صالح"),
         "lectureHours": MessageLookupByLibrary.simpleMessage("ساعات المحاضرة"),
         "lecture_hours": MessageLookupByLibrary.simpleMessage("ساعات المحاضرة"),
         "level": MessageLookupByLibrary.simpleMessage("المستوى"),
         "levels": MessageLookupByLibrary.simpleMessage("المستويات"),
+        "levelsCount": MessageLookupByLibrary.simpleMessage("عدد المستويات"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "loginSuccess":
             MessageLookupByLibrary.simpleMessage("تم تسجيل الدخول بنجاح"),
+        "male": MessageLookupByLibrary.simpleMessage("ذكر"),
+        "mandatoryHours":
+            MessageLookupByLibrary.simpleMessage("الساعات الإجبارية"),
+        "maxConsecutiveWarnings":
+            MessageLookupByLibrary.simpleMessage("الإنذارات المتتالية القصوى"),
+        "maxRegistrationHours":
+            MessageLookupByLibrary.simpleMessage("الحد الأقصى لساعات التسجيل"),
+        "maxRetakeCourses":
+            MessageLookupByLibrary.simpleMessage("أقصى عدد مواد للإعادة"),
+        "maxRetakeGrade":
+            MessageLookupByLibrary.simpleMessage("أعلى درجة عند الإعادة"),
+        "maxYearsLevelOne": MessageLookupByLibrary.simpleMessage(
+            "السنوات القصوى في المستوى الأول"),
+        "minGpaForGraduation":
+            MessageLookupByLibrary.simpleMessage("أدنى معدل للتخرج"),
+        "minRegistrationHours":
+            MessageLookupByLibrary.simpleMessage("الحد الأدنى لساعات التسجيل"),
         "myCourses": MessageLookupByLibrary.simpleMessage("المقررات الخاصة بي"),
         "name": MessageLookupByLibrary.simpleMessage("الاسم"),
         "nationalId": MessageLookupByLibrary.simpleMessage("الرقم القومي"),
@@ -125,6 +155,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "noData": MessageLookupByLibrary.simpleMessage("لا توجد بيانات متاحة"),
         "noPrerequisite":
             MessageLookupByLibrary.simpleMessage("لا توجد متطلبات سابقة"),
+        "normalRegistrationHours": MessageLookupByLibrary.simpleMessage(
+            "عدد الساعات في التسجيل العادي"),
+        "optionalHours":
+            MessageLookupByLibrary.simpleMessage("الساعات الاختيارية"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
         "passwordLengthError": MessageLookupByLibrary.simpleMessage(
             "كلمة السر يجب ان تكون بين 4 و 30 حرف"),
@@ -134,7 +168,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("البيانات الشخصية"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "plan": MessageLookupByLibrary.simpleMessage("الخطة"),
-        "plans": MessageLookupByLibrary.simpleMessage("الخطط"),
+        "plans": MessageLookupByLibrary.simpleMessage("الخطط الدراسية"),
         "practicalHours": MessageLookupByLibrary.simpleMessage("ساعات العملي"),
         "practical_hours": MessageLookupByLibrary.simpleMessage("ساعات العملي"),
         "prerequisite":
@@ -147,9 +181,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("المقررات المقترحة"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل !"),
         "registration": MessageLookupByLibrary.simpleMessage("التسجيل"),
+        "registrationClosed":
+            MessageLookupByLibrary.simpleMessage("فترة التسجيل مغلقة"),
         "registrationRules":
             MessageLookupByLibrary.simpleMessage("قواعد التسجيل"),
         "regulation": MessageLookupByLibrary.simpleMessage("اللائحة"),
+        "regulationHours":
+            MessageLookupByLibrary.simpleMessage("عدد الساعات في اللائحة"),
+        "requiredHours":
+            MessageLookupByLibrary.simpleMessage("الساعات المطلوبة"),
         "requirements": MessageLookupByLibrary.simpleMessage("المتطلبات"),
         "resendEmail":
             MessageLookupByLibrary.simpleMessage("إعادة إرسال البريد"),
@@ -162,6 +202,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "results": MessageLookupByLibrary.simpleMessage("النتائج"),
         "retakeRules":
             MessageLookupByLibrary.simpleMessage("قواعد إعادة المقررات"),
+        "second": MessageLookupByLibrary.simpleMessage("الثاني"),
         "secondSemester": MessageLookupByLibrary.simpleMessage("الثاني"),
         "selectCourses":
             MessageLookupByLibrary.simpleMessage("اختيار المقررات"),
@@ -169,17 +210,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "select_level": MessageLookupByLibrary.simpleMessage("اختر المستوى"),
         "selected": MessageLookupByLibrary.simpleMessage("المسجل"),
         "semester": MessageLookupByLibrary.simpleMessage("الترم"),
+        "semestersWithoutGpaRules":
+            MessageLookupByLibrary.simpleMessage("الفصول بدون معدل"),
         "specializationRequirements":
             MessageLookupByLibrary.simpleMessage("متطلبات التخصص"),
         "studentData": MessageLookupByLibrary.simpleMessage("بيانات الطالب"),
         "studentGrades": MessageLookupByLibrary.simpleMessage("درجات الطالب"),
         "summer": MessageLookupByLibrary.simpleMessage("الصيف"),
-        "term": MessageLookupByLibrary.simpleMessage("الفصل"),
+        "summerTerm": MessageLookupByLibrary.simpleMessage("الصيفي"),
+        "summerTermHours":
+            MessageLookupByLibrary.simpleMessage("ساعات الفصل الصيفي"),
+        "term": MessageLookupByLibrary.simpleMessage("الترم"),
         "termGpa": MessageLookupByLibrary.simpleMessage("المعدل الفصلي"),
         "to": MessageLookupByLibrary.simpleMessage("إلى"),
         "totalEarnedHours":
             MessageLookupByLibrary.simpleMessage("إجمالي الساعات المكتسبة"),
         "training": MessageLookupByLibrary.simpleMessage("التدريب"),
+        "trainingRequirements":
+            MessageLookupByLibrary.simpleMessage("متطلبات التدريب"),
         "universityId": MessageLookupByLibrary.simpleMessage("الرقم الجامعي"),
         "universityRequirements":
             MessageLookupByLibrary.simpleMessage("متطلبات الجامعة"),

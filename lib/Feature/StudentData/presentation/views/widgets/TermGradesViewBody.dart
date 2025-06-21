@@ -9,6 +9,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class Termgradesviewbody extends StatelessWidget {
   const Termgradesviewbody({super.key});
 
+  String getSemesterName(BuildContext context, int semester) {
+    switch (semester) {
+      case 1:
+        return S.of(context).first;
+      case 2:
+        return S.of(context).second;
+      case 3:
+        return S.of(context).summer;
+      default:
+        return semester.toString();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -20,7 +33,7 @@ class Termgradesviewbody extends StatelessWidget {
         },
         builder: (context, state) {
           if (state is TermGradesLoading) {
-            return  Container(
+            return Container(
               height: MediaQuery.of(context).size.height * 0.8,
               child: const Center(
                 child: CircularProgressIndicator(
@@ -35,7 +48,7 @@ class Termgradesviewbody extends StatelessWidget {
                 (index) => CustomTermGrades(
                   context: context,
                   term:
-                      '${S.of(context).term} ${state.List_Termgrades[index].semester} ${state.List_Termgrades[index].startYear}-${state.List_Termgrades[index].endYear}',
+                      '${S.of(context).term} ${getSemesterName(context, state.List_Termgrades[index].semester)} ${state.List_Termgrades[index].startYear}-${state.List_Termgrades[index].endYear}',
                   course: state.List_Termgrades[index],
                 ),
               ),
@@ -48,5 +61,3 @@ class Termgradesviewbody extends StatelessWidget {
     );
   }
 }
-
-

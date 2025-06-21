@@ -19,20 +19,20 @@ class StudPersonalDataViewBody extends StatefulWidget {
   const StudPersonalDataViewBody({super.key});
 
   @override
-  State<StudPersonalDataViewBody> createState() => _StudPersonalDataViewBodyState();
+  State<StudPersonalDataViewBody> createState() =>
+      _StudPersonalDataViewBodyState();
 }
-
 
 class _StudPersonalDataViewBodyState extends State<StudPersonalDataViewBody> {
-
-@override
-void initState() {
-  super.initState();
-  final cubit = context.read<PersonalInfoCubit>();
-  if (cubit.state is !PersonalInfoSuccess) {
-    cubit.getPersonalInfo();
+  @override
+  void initState() {
+    super.initState();
+    final cubit = context.read<PersonalInfoCubit>();
+    if (cubit.state is! PersonalInfoSuccess) {
+      cubit.getPersonalInfo();
+    }
   }
-}
+
   Widget build(BuildContext context) {
     return BlocConsumer<PersonalInfoCubit, PersonalInfoState>(
       listener: (context, state) {
@@ -69,7 +69,7 @@ void initState() {
                         child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                       const  Personal_Image(),
+                        const Personal_Image(),
                         const SizedBox(
                           height: 10,
                         ),
@@ -84,7 +84,6 @@ void initState() {
                               fontSize: 20,
                               fontWeight: FontWeight.bold),
                         ),
-    
                       ],
                     ))),
                 const SizedBox(
@@ -96,9 +95,12 @@ void initState() {
                     child: Column(
                       children: [
                         ProfileItem(
-                            icon: Icons.male,
-                            label: S.of(context).gender,
-                            value: getUserPersonalData()!.gender),
+                          icon: Icons.male,
+                          label: S.of(context).gender,
+                          value: getUserPersonalData()!.gender == "male"
+                              ? S.of(context).male
+                              : S.of(context).female,
+                        ),
                         const Divider(
                           color: Colors.white,
                           height: 8,

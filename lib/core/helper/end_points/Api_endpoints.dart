@@ -1,7 +1,7 @@
 class ApiEndpoints {
   static const String token = "token";
 
-  static const String baseUrl = 'http://192.168.1.5:3000/api/';
+  static const String baseUrl = 'http://192.168.1.4:3000/api/';
 
   static const String login = 'login';
   static const String personalInfo = 'me/personal-info';

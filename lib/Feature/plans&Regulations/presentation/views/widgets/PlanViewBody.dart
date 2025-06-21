@@ -13,6 +13,19 @@ class PlanViewBody extends StatefulWidget {
 class _PlanViewBodyState extends State<PlanViewBody> {
   int? selectedLevel;
 
+  String getSemesterName(BuildContext context, int semester) {
+    switch (semester) {
+      case 1:
+        return S.of(context).first;
+      case 2:
+        return S.of(context).second;
+      case 3:
+        return S.of(context).summer;
+      default:
+        return semester.toString();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<PlanCubit, PlanState>(
@@ -38,11 +51,11 @@ class _PlanViewBodyState extends State<PlanViewBody> {
                 DropdownButtonFormField<int>(
                   decoration: InputDecoration(
                     hintText: S.of(context).select_level,
-                    hintStyle:const  TextStyle(color: Colors.black87),
+                    hintStyle: const TextStyle(color: Colors.black87),
                     filled: true,
                     fillColor: Colors.white,
-                    contentPadding:
-                       const  EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 12),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide(color: Colors.grey.shade400),
@@ -70,9 +83,7 @@ class _PlanViewBodyState extends State<PlanViewBody> {
                     );
                   }).toList(),
                 ),
-                
-                
-                
+
                 const SizedBox(height: 20),
 
                 if (filteredData.isNotEmpty)
@@ -90,7 +101,7 @@ class _PlanViewBodyState extends State<PlanViewBody> {
                           ),
                           child: ExpansionTile(
                             title: Text(
-                                "${S.of(context).semester} ${semesterData.semester}"),
+                                "${S.of(context).semester} ${getSemesterName(context, semesterData.semester)}"),
                             children: [
                               SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
@@ -116,7 +127,7 @@ class _PlanViewBodyState extends State<PlanViewBody> {
                                         DataCell(
                                           Text(
                                             Localizations.localeOf(context)
-                                                         .languageCode ==
+                                                        .languageCode ==
                                                     'en'
                                                 ? course.name.en
                                                 : course.name.ar,
@@ -149,7 +160,7 @@ class _PlanViewBodyState extends State<PlanViewBody> {
             ),
           );
         } else {
-          return  const SizedBox();
+          return const SizedBox();
         }
       },
     );

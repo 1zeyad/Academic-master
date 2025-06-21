@@ -31,9 +31,7 @@ class HomeViewBody extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: 16),
-
-         const   InfoPersonal(),
-
+          const InfoPersonal(),
           const SizedBox(height: 10),
           Container(
             color: Colors.white,
@@ -113,8 +111,9 @@ class HomeViewBody extends StatelessWidget {
                     if (getUserAcademicInfo()!.gainedHours < 70) {
                       LocaNotificationServices.showBasicNotification(
                         id: 1,
-                        body: 'You have not completed your training hours ${getUserAcademicInfo()!.gainedHours}',
-                        title: 'Admin',
+                        body:
+                            '${S.of(context).incompleteTrainingHours} ${getUserAcademicInfo()!.gainedHours}',
+                        title: S.of(context).admin,
                         payload: "training",
                       );
                     } else {
@@ -156,8 +155,8 @@ class HomeItemRegistration extends StatelessWidget {
             if (state.status == false) {
               LocaNotificationServices.showBasicNotification(
                 id: 3,
-                body: 'Registration is Closed',
-                title: 'Admin',
+                body: S.of(context).registrationClosed,
+                title: S.of(context).admin,
                 payload: "registration",
               );
 
