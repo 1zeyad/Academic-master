@@ -10,13 +10,20 @@ class Termgradesviewbody extends StatelessWidget {
   const Termgradesviewbody({super.key});
 
   String getSemesterName(BuildContext context, int semester) {
+    final isEnglish = Localizations.localeOf(context).languageCode == 'en';
     switch (semester) {
       case 1:
-        return S.of(context).first;
+        return isEnglish
+            ? '${S.of(context).first} ${S.of(context).term}'
+            : '${S.of(context).term} ${S.of(context).first}';
       case 2:
-        return S.of(context).second;
+        return isEnglish
+            ? '${S.of(context).second} ${S.of(context).term}'
+            : '${S.of(context).term} ${S.of(context).second}';
       case 3:
-        return S.of(context).summer;
+        return isEnglish
+            ? '${S.of(context).summer} ${S.of(context).term}'
+            : '${S.of(context).term} ${S.of(context).summer}';
       default:
         return semester.toString();
     }
@@ -48,7 +55,7 @@ class Termgradesviewbody extends StatelessWidget {
                 (index) => CustomTermGrades(
                   context: context,
                   term:
-                      '${S.of(context).term} ${getSemesterName(context, state.List_Termgrades[index].semester)} ${state.List_Termgrades[index].startYear}-${state.List_Termgrades[index].endYear}',
+                      '${getSemesterName(context, state.List_Termgrades[index].semester)} ${state.List_Termgrades[index].startYear}-${state.List_Termgrades[index].endYear}',
                   course: state.List_Termgrades[index],
                 ),
               ),

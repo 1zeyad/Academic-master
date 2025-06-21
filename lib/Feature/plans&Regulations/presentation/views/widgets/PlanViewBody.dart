@@ -14,13 +14,21 @@ class _PlanViewBodyState extends State<PlanViewBody> {
   int? selectedLevel;
 
   String getSemesterName(BuildContext context, int semester) {
+    final isEnglish = Localizations.localeOf(context).languageCode == 'en';
+
     switch (semester) {
       case 1:
-        return S.of(context).first;
+        return isEnglish
+            ? '${S.of(context).first} ${S.of(context).semester}'
+            : '${S.of(context).semester} ${S.of(context).first}';
       case 2:
-        return S.of(context).second;
+        return isEnglish
+            ? '${S.of(context).second} ${S.of(context).semester}'
+            : '${S.of(context).semester} ${S.of(context).second}';
       case 3:
-        return S.of(context).summer;
+        return isEnglish
+            ? '${S.of(context).summer} ${S.of(context).semester}'
+            : '${S.of(context).semester} ${S.of(context).summer}';
       default:
         return semester.toString();
     }
@@ -101,7 +109,7 @@ class _PlanViewBodyState extends State<PlanViewBody> {
                           ),
                           child: ExpansionTile(
                             title: Text(
-                                "${S.of(context).semester} ${getSemesterName(context, semesterData.semester)}"),
+                                "${getSemesterName(context, semesterData.semester)}"),
                             children: [
                               SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,

@@ -17,7 +17,7 @@ class ApiInterceptor extends Interceptor {
       options.headers['Accept-Language'] = language;
     }
 
-    options.headers['Accept-Language'] = "ar";
+    // options.headers['Accept-Language'] = "ar";
 
     super.onRequest(options, handler);
   }
