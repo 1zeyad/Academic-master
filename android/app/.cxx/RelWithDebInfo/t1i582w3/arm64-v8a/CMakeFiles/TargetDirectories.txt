@@ -1,0 +1,2 @@
+F:/project/Academic-master-master/android/app/.cxx/RelWithDebInfo/t1i582w3/arm64-v8a/CMakeFiles/edit_cache.dir
+F:/project/Academic-master-master/android/app/.cxx/RelWithDebInfo/t1i582w3/arm64-v8a/CMakeFiles/rebuild_cache.dir
