@@ -12,6 +12,7 @@ static StreamController<NotificationResponse> streamController =
 
 static String? initialNotificationPayload;
 
+
 static onTap(NotificationResponse notificationResponse) {
   initialNotificationPayload = notificationResponse.payload;
   

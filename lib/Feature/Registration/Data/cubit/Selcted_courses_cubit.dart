@@ -12,6 +12,7 @@ class SelctedCoursesCubit extends Cubit<SelctedCoursesState> {
 
   List<AvaliableCourses> selectedCourses = [];
 
+ // Register for term
   Future<void> courseRegistration({required List<String> id_Courses}) async {
     emit(SelctedCoursesLoading());
     try {
@@ -41,9 +42,9 @@ class SelctedCoursesCubit extends Cubit<SelctedCoursesState> {
 
     emit(RemoveCourseSelection(available_courses: List.from(selectedCourses)));
   }
-  
-      void resetState() {
-  emit(CoursesInitial());
-  selectedCourses = [];
-}
+
+  void resetState() {
+    emit(CoursesInitial());
+    selectedCourses = [];
+  }
 }

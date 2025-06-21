@@ -59,7 +59,7 @@ class _RegulationViewBodyState extends State<RegulationViewBody> {
                     labelText: S.of(context).selectSection,
                     labelStyle: const TextStyle(
                       color: TColor.primaryColor,
-                      fontSize: 20,
+                      fontSize: 16,
                     ),
                     border: const OutlineInputBorder(),
                     focusedBorder: OutlineInputBorder(

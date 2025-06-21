@@ -5,11 +5,11 @@ class ApiEndpoints {
 
   static const String login = 'login';
   static const String personalInfo = 'me/personal-info';
-  static const String academicInfo = 'academic-info/me';
-  static const String termGrades = "semesters/me";
+  static const String academicInfo = 'me/academic-info';
+  static const String termGrades = "me/semesters";
   static const String availableCourses = "available-courses";
   static const String register = 'registrations';
-  static const String myCourses = 'registrations/me';
+  static const String myCourses = 'me/registrations';
   static const String changePassword = 'password';
   static const String getmyplans = 'me/plan';
   static const String recomendationCourses = "recommended-courses";

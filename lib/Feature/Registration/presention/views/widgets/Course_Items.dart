@@ -23,7 +23,6 @@ class Courseitem extends StatelessWidget {
     return Card(
       elevation: 2,
       child: Container(
-
         color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),

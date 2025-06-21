@@ -12,6 +12,7 @@ import 'package:acdemy/Feature/StudentData/data/cubit/term_grades_cubit.dart';
 import 'package:acdemy/Feature/StudentData/presentation/views/StudPersonalDataView.dart';
 import 'package:acdemy/core/helper/Local_cache/local_cache.dart';
 import 'package:acdemy/core/utiles/app_color.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -122,3 +123,32 @@ class _CustomButtonNavigationBarState extends State<CustomButtonNavigationBar> {
     
   }
 }
+
+
+//  Future<void> logout(BuildContext context) async {
+//     try {
+//       // 1. حذف البيانات من الكاش
+//       await CacheHelper.clearData();
+
+//       // 2. حذف توكن Firebase Messaging
+//       await FirebaseMessaging.instance.deleteToken();
+
+//       // 3. إلغاء الاشتراكات أو StreamControllers إن وجدت
+//       // مثلا:
+//       // myStreamSubscription?.cancel();
+//       // notificationStreamController?.close();
+
+//       // 4. إلغاء الإشعارات المحلية المجدولة
+//       final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+//           FlutterLocalNotificationsPlugin();
+//       await flutterLocalNotificationsPlugin.cancelAll();
+
+//       // 5. إعادة تهيئة الـ Cubits أو الـ Providers
+//       resetCubits(context);
+
+//       // 6. التوجيه إلى شاشة تسجيل الدخول
+//       GoRouter.of(context).go(StudentLoginView.routename);
+//     } catch (e) {
+//       debugPrint("🚨 Error during logout: $e");
+//     }
+//   }

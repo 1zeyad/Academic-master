@@ -14,7 +14,7 @@ AcademicInfo? getUserAcademicInfo() {
   }
 
   try {
-    var userData = AcademicInfo.fromJson(jsonDecode(jsonString));
+    var userData = AcademicInfo.fromJson(jsonDecode(jsonString));// conver string to Map<String, dynamic >
     return userData;
   } catch (e) {
     log("Error decoding academic info: $e");

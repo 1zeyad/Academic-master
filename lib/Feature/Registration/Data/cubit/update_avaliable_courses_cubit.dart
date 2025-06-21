@@ -13,7 +13,7 @@ class UpdateAvaliableCoursesCubit extends Cubit<UpdateAvaliableCoursesState> {
    {required this.registrationRepo,}
   ) : super(UpdateAvaliableCoursesInitial());
 
-     List<AvaliableCourses>  List_courses =[];
+     List<AvaliableCourses>  List_courses = [];
 
    final RegistrationRepo registrationRepo;
 

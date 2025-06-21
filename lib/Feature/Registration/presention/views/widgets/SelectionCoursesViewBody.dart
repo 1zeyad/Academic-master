@@ -54,13 +54,15 @@ class SelectionCoursesViewBody extends StatelessWidget {
                       return CourseSelcet(avaliableCourses: courses[index]);
                     },
                   ),
+
+                  // Register button && total hours
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Visibility(
-                              visible: courses.isNotEmpty,
+                          visible: courses.isNotEmpty,
                           child: TextButton(
                             style: TextButton.styleFrom(
                               backgroundColor: TColor.primaryColor,
@@ -70,10 +72,9 @@ class SelectionCoursesViewBody extends StatelessWidget {
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 12, vertical: 4),
                             ),
+                            // Button Register
                             onPressed: () {
-                              var coursess = context
-                                  .read<SelctedCoursesCubit>()
-                                  .selectedCourses;
+                              var coursess = context.read<SelctedCoursesCubit>().selectedCourses;
                               List<String> id_Coursess = [];
                               for (var element in coursess) {
                                 id_Coursess.add(element.id);
