@@ -30,7 +30,7 @@ class Keys {
   static const String KacademicInfooo = "academicInfo";
   static const String KpersonalInfo = "personalInfo";
   static const String KAvailableCourses = "myCourses";
-static const String KRegistration = "myRegistration";
+  static const String KRegistration = "myRegistration";
 
   static const String registrationStatus = "registrationStatus";
 

@@ -145,46 +145,46 @@ class _RegulationViewBodyState extends State<RegulationViewBody> {
     );
   }
 
-Widget _buildSectionContent(String key) {
-  final data = Regulation_data[key];
-  final sectionTitle = getSectionNames(context)[key]!;
+  Widget _buildSectionContent(String key) {
+    final data = Regulation_data[key];
+    final sectionTitle = getSectionNames(context)[key]!;
 
-  return SingleChildScrollView(
-    scrollDirection: Axis.horizontal,
-    child: SingleChildScrollView( 
-      scrollDirection: Axis.vertical,
-      child: Card(
-        surfaceTintColor: Colors.white,
-        shadowColor: Colors.white,
-        color: Colors.white,
-        margin: const EdgeInsets.only(top: 8),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                sectionTitle,
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-             
-              Container(
-                height: 370, 
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: _buildDataTable(key, data),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Card(
+          surfaceTintColor: Colors.white,
+          shadowColor: Colors.white,
+          color: Colors.white,
+          margin: const EdgeInsets.only(top: 8),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  sectionTitle,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 18),
                 ),
-              ),
-            ],
+                const SizedBox(height: 10),
+                Container(
+                  height: 370,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: _buildDataTable(key, data),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
-    ),
-  );
-}
-
+    );
+  }
 
   Widget _buildDataTable(String key, dynamic data) {
     if (data is Map<String, dynamic>) {
@@ -231,7 +231,7 @@ Widget _buildSectionContent(String key) {
     } else if (data is List) {
       if (key == "courseGpaRanges") {
         return SizedBox(
-          height: 300,
+          height: 700,
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: DataTable(

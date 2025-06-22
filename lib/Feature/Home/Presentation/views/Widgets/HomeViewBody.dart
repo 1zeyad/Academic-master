@@ -27,15 +27,17 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Column(
         children: [
-          const SizedBox(height: 16),
+          const SizedBox(height: 30),
+          // personal info
           const InfoPersonal(),
-          const SizedBox(height: 10),
+          const SizedBox(height: 30),
           Container(
             color: Colors.white,
             child: GridView.count(
+              childAspectRatio: 1/1.1,
               crossAxisCount: 3,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -73,7 +75,7 @@ class HomeViewBody extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 15),
           Container(
             decoration: BoxDecoration(
               color: Colors.white,
@@ -83,7 +85,7 @@ class HomeViewBody extends StatelessWidget {
               crossAxisCount: 2,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              childAspectRatio: 2 / 1,
+              childAspectRatio: 1.5 / 1,
               children: [
                 const HomeItemRegistration(),
                 HomeItem(
@@ -136,7 +138,7 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
-
+// Home Item Registration
 class HomeItemRegistration extends StatelessWidget {
   const HomeItemRegistration({
     super.key,

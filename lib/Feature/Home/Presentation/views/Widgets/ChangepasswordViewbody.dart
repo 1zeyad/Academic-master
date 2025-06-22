@@ -17,80 +17,91 @@ class ChangepasswordViewbody extends StatelessWidget {
     String? currentPassword, newpassword, confirmNewpassword;
 
     return Scaffold(
-      body: Form(
-        key: formKey,
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 20),
-              label_text(S.of(context).currentPassword),
-              const SizedBox(
-                height: 3,
-              ),
-              ChangePasswordField(
-                onSaved: (value) {
-                  currentPassword = value!;
-                },
-                hintText: S.of(context).enterCurrentPassword,
-              ),
-              const SizedBox(height: 20),
-              label_text(S.of(context).newPassword),
-              const SizedBox(
-                height: 3,
-              ),
-              ChangePasswordField(
+      body: SingleChildScrollView(
+        child: Form(
+          key: formKey,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 40),
+        
+                // feild Current paswword
+                label_text(S.of(context).currentPassword),
+                const SizedBox(
+                  height: 5,
+                ),
+                ChangePasswordField(
                   onSaved: (value) {
-                    newpassword = value!;
+                    currentPassword = value!;
                   },
-                  hintText: S.of(context).enterNewPassword),
-              const SizedBox(height: 20),
-              label_text(S.of(context).confirmNewPassword),
-              const SizedBox(
-                height: 3,
-              ),
-              ChangePasswordField(
-                onSaved: (value) {
-                  confirmNewpassword = value!;
-                },
-                hintText: S.of(context).confirmNewPasswordHint,
-              ),
-              const SizedBox(height: 40),
-              Center(
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        formKey.currentState!.save();
-                        if (newpassword == confirmNewpassword) {
-                          context.read<ChangePasswordCubit>().changePassword(
-                              oldpassword: currentPassword!,
-                              Newpassword: newpassword!);
-                        } else {
-                          CustomErrorMessage(S.of(context).newPasswordMismatch);
-                        }
-                      }
+                  hintText: S.of(context).enterCurrentPassword,
+                ),
+                  // feild New Passwword
+                const SizedBox(height: 30),
+                label_text(S.of(context).newPassword),
+                const SizedBox(
+                  height: 3,
+                ),
+        
+              
+        
+                ChangePasswordField(
+                    onSaved: (value) {
+                      newpassword = value!;
                     },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: TColor.primaryColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+                    hintText: S.of(context).enterNewPassword),
+        
+                const SizedBox(height: 30),
+                 // feild confirm New Passwword
+                label_text(S.of(context).confirmNewPassword),
+                const SizedBox(
+                  height: 3,
+                ),
+               
+                ChangePasswordField(
+                  onSaved: (value) {
+                    confirmNewpassword = value!;
+                  },
+                  hintText: S.of(context).confirmNewPasswordHint,
+                ),
+                const SizedBox(height: 270),
+                Center(
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          formKey.currentState!.save();
+                          if (newpassword == confirmNewpassword) {
+                            context.read<ChangePasswordCubit>().changePassword(
+                                oldpassword: currentPassword!,
+                                Newpassword: newpassword!);
+                          } else {
+                            CustomErrorMessage(S.of(context).newPasswordMismatch);
+                          }
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: TColor.primaryColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      S.of(context).confirmButton,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold),
+                      child: Text(
+                        S.of(context).confirmButton,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

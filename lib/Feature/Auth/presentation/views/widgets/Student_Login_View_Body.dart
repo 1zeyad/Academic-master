@@ -44,7 +44,7 @@ class _StudentloginViewBodyState extends State<StudentloginViewBody> {
                 // image Login
                 Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 21, top: 40),
+                    padding: const EdgeInsets.only(right: 21, top: 60),
                     child: Image.asset(
                       Assets.ImageLogin,
                       height: 200,
@@ -53,7 +53,7 @@ class _StudentloginViewBodyState extends State<StudentloginViewBody> {
                   ),
                 ),
 
-                const SizedBox(height: 10),
+                const SizedBox(height: 30),
 
                 Text(
                   S.of(context).email,
@@ -62,7 +62,7 @@ class _StudentloginViewBodyState extends State<StudentloginViewBody> {
                     fontSize: 16,
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 10),
 
                 // email text field
                 CustomTextFormField(
@@ -105,7 +105,7 @@ class _StudentloginViewBodyState extends State<StudentloginViewBody> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 60),
+                const SizedBox(height: 100),
 
                 Center(
                   child: Custombutton(

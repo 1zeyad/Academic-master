@@ -17,8 +17,8 @@ class GraduationInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        width: 160,
-        height: 160,
+        width: 225,
+        height: 222,
         child: Stack(
           fit: StackFit.expand,
           children: [
@@ -35,7 +35,7 @@ class GraduationInfo extends StatelessWidget {
                 children: [
                   Text("$remainingHours",
                       style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                         const  TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                   Text(S.of(context).hoursToGraduate,
                       textAlign: TextAlign.center, style: TTextstyle.normal16),
                 ],

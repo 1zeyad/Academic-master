@@ -17,24 +17,27 @@ class ProfileItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0),
-      child: Row(
-        children: [
-          Icon(icon, color: TColor.primaryColor),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(label, style: TTextstyle.bold15),
-                Text(
-                    overflow: TextOverflow.ellipsis,
-                    value.toString(),
-                    style: TextStyle(color: Colors.grey[700])),
-              ],
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
+      child: SizedBox(
+        height: 40,
+        child: Row(
+          children: [
+            Icon(icon, color: TColor.primaryColor),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(label, style: TTextstyle.bold15),
+                  Text(
+                      overflow: TextOverflow.ellipsis,
+                      value.toString(),
+                      style: TextStyle(color: Colors.grey[700])),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
