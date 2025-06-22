@@ -7,6 +7,9 @@ class ServerException implements Exception {
   final String errMessage;
 
   ServerException({required this.errMessage});
+
+  @override
+  String toString() => 'ServerException: $errMessage';
 }
 
 void HandleException(DioException e) {

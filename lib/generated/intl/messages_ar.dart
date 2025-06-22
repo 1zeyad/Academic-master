@@ -117,7 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "hoursToGraduate":
             MessageLookupByLibrary.simpleMessage("ساعات\nللتخرج"),
         "incompleteTrainingHours": MessageLookupByLibrary.simpleMessage(
-            "لم تقم بإتمام ساعات التدريب بعد"),
+            "لم تقم بإتمام ساعات التدريب "),
         "info": MessageLookupByLibrary.simpleMessage("معلومات"),
         "invalidEmail":
             MessageLookupByLibrary.simpleMessage("البريد الإلكتروني غير صالح"),

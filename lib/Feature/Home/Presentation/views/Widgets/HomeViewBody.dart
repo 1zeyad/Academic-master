@@ -115,7 +115,8 @@ class HomeViewBody extends StatelessWidget {
                         id: 1,
                         body:
                             '${S.of(context).incompleteTrainingHours} ${getUserAcademicInfo()!.gainedHours}',
-                        title: S.of(context).admin,
+                        // title: S.of(context).admin,
+                        title: "Admin",
                         payload: "training",
                       );
                     } else {
@@ -158,7 +159,8 @@ class HomeItemRegistration extends StatelessWidget {
               LocaNotificationServices.showBasicNotification(
                 id: 3,
                 body: S.of(context).registrationClosed,
-                title: S.of(context).admin,
+                // title: S.of(context).admin,
+                title: "Admin",
                 payload: "registration",
               );
 
