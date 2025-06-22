@@ -145,12 +145,14 @@ class _RegulationViewBodyState extends State<RegulationViewBody> {
     );
   }
 
-  Widget _buildSectionContent(String key) {
-    final data = Regulation_data[key];
-    final sectionTitle = getSectionNames(context)[key]!;
+Widget _buildSectionContent(String key) {
+  final data = Regulation_data[key];
+  final sectionTitle = getSectionNames(context)[key]!;
 
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
+  return SingleChildScrollView(
+    scrollDirection: Axis.horizontal,
+    child: SingleChildScrollView( 
+      scrollDirection: Axis.vertical,
       child: Card(
         surfaceTintColor: Colors.white,
         shadowColor: Colors.white,
@@ -164,17 +166,25 @@ class _RegulationViewBodyState extends State<RegulationViewBody> {
             children: [
               Text(
                 sectionTitle,
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               const SizedBox(height: 10),
-              _buildDataTable(key, data),
+             
+              Container(
+                height: 370, 
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: _buildDataTable(key, data),
+                ),
+              ),
             ],
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
+
 
   Widget _buildDataTable(String key, dynamic data) {
     if (data is Map<String, dynamic>) {

@@ -1,8 +1,6 @@
 class ApiEndpoints {
   static const String token = "token";
-
-  static const String baseUrl = 'http://192.168.1.4:3000/api/';
-
+  static const String baseUrl = 'http://192.168.1.10:3000/api/';
   static const String login = 'login';
   static const String personalInfo = 'me/personal-info';
   static const String academicInfo = 'me/academic-info';
@@ -27,22 +25,19 @@ class Keys {
   static const String id_Courses = 'courseIds';
   static const String oldPassword = "oldPassword";
   static const String newPassword = "newPassword";
-
   static const String password = "password";
   static const String email = "email";
-
   static const String KacademicInfooo = "academicInfo";
   static const String KpersonalInfo = "personalInfo";
   static const String KAvailableCourses = "myCourses";
-
-  static const String KRegistration = "myRegistration";
+static const String KRegistration = "myRegistration";
 
   static const String registrationStatus = "registrationStatus";
 
   static const String email_forgetPassword = 'zeyadmossa1298@gmail.com';
 
-  static String secondEmail = 'manarraafat1212@gmail.com';
-  static String passwordd = "12345678@Ab";
+  // static String secondEmail = 'manarraafat1212@gmail.com';
+  // static String passwordd = "12345678@Ab";
 
 // abdoeid2121@gmail.com
 
