@@ -97,7 +97,7 @@ class _StudPersonalDataViewBodyState extends State<StudPersonalDataViewBody> {
                         ProfileItem(
                           icon: Icons.male,
                           label: S.of(context).gender,
-                          value: getUserPersonalData()!.gender == "male"
+                          value: getUserPersonalData()!.gender == "MALE"
                               ? S.of(context).male
                               : S.of(context).female,
                         ),

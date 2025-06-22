@@ -93,6 +93,7 @@ class _CustomButtonNavigationBarState extends State<CustomButtonNavigationBar> {
                 onTap: () async {
                   await CacheHelper.clearData();
                   resetCubits(context);
+                    await FirebaseMessaging.instance.deleteToken();
 
                   GoRouter.of(context).go(StudentLoginView.routename);
                 },
@@ -125,30 +126,3 @@ class _CustomButtonNavigationBarState extends State<CustomButtonNavigationBar> {
 }
 
 
-//  Future<void> logout(BuildContext context) async {
-//     try {
-//       // 1. حذف البيانات من الكاش
-//       await CacheHelper.clearData();
-
-//       // 2. حذف توكن Firebase Messaging
-//       await FirebaseMessaging.instance.deleteToken();
-
-//       // 3. إلغاء الاشتراكات أو StreamControllers إن وجدت
-//       // مثلا:
-//       // myStreamSubscription?.cancel();
-//       // notificationStreamController?.close();
-
-//       // 4. إلغاء الإشعارات المحلية المجدولة
-//       final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-//           FlutterLocalNotificationsPlugin();
-//       await flutterLocalNotificationsPlugin.cancelAll();
-
-//       // 5. إعادة تهيئة الـ Cubits أو الـ Providers
-//       resetCubits(context);
-
-//       // 6. التوجيه إلى شاشة تسجيل الدخول
-//       GoRouter.of(context).go(StudentLoginView.routename);
-//     } catch (e) {
-//       debugPrint("🚨 Error during logout: $e");
-//     }
-//   }
