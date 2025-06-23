@@ -25,14 +25,14 @@ class PushNotificationServices {
     await messaging.getToken().then((token) {
     log("fcm token is ${token}");
       if (token != null) {
-        // sendTokentoServer(FCMtoken: token);
+        sendTokentoServer(FCMtoken: token);
       }
     });
-  // messaging.onTokenRefresh.listen(
-  //     (token) {
-  //       sendTokentoServer(FCMtoken: token);
-  //     },
-  //   );
+  messaging.onTokenRefresh.listen(
+      (token) {
+        sendTokentoServer(FCMtoken: token);
+      },
+    );
 
 
     FirebaseMessaging.onMessage.listen(

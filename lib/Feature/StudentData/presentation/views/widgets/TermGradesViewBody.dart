@@ -49,14 +49,16 @@ class Termgradesviewbody extends StatelessWidget {
               ),
             );
           } else if (state is TermGradesSuccess) {
+             var List_Termgrades = state.List_Termgrades;
             return Column(
               children: List.generate(
-                state.List_Termgrades.length,
+                List_Termgrades.length,
                 (index) => CustomTermGrades(
                   context: context,
                   term:
-                      '${getSemesterName(context, state.List_Termgrades[index].semester)} ${state.List_Termgrades[index].startYear}-${state.List_Termgrades[index].endYear}',
-                  course: state.List_Termgrades[index],
+                      '${getSemesterName(context,List_Termgrades[index].semester)} ${List_Termgrades[index].startYear}-${List_Termgrades[index].endYear}',
+                      
+                  course: List_Termgrades[index],
                 ),
               ),
             );

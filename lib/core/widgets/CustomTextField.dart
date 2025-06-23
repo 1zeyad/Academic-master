@@ -44,12 +44,13 @@ class CustomTextFormField extends StatelessWidget {
           if (!emailRegex.hasMatch(value)) {
             return S.of(context).invalidEmail;
           }
-        } else {
-          if (value.length < 4 || value.length > 30) {
-            return S.of(context).passwordLengthError;
-          }
-        }
+        // } else {
+        //   if (value.length < 4 || value.length > 30) {
+        //     return S.of(context).passwordLengthError;
+        //   }
+        // }
 
+        }
         return null;
       },
       decoration: InputDecoration(

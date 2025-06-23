@@ -41,6 +41,7 @@ class _NewPasswordViewBodyState extends State<NewPasswordViewBody> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
+            // Icon back
           IconArrowBack_NewPassword(
               text: S.of(context).newPassword,
             ),
@@ -51,7 +52,7 @@ class _NewPasswordViewBodyState extends State<NewPasswordViewBody> {
               style: TTextstyle.semiBold14.copyWith(color: TColor.primaryColor),
             ),
             const SizedBox(height: 10),
-
+            // password feild 
             CustomPaswordFeild(
               controller: passwordController,
               hintText: S.of(context).password,
@@ -71,6 +72,7 @@ class _NewPasswordViewBodyState extends State<NewPasswordViewBody> {
             ),
             const SizedBox(height: 10),
 
+             // confirmPassword
             CustomPaswordFeild(
               controller: confirmPasswordController,
               hintText: S.of(context).reEnterPassword,
@@ -84,7 +86,8 @@ class _NewPasswordViewBodyState extends State<NewPasswordViewBody> {
             ),
 
             const SizedBox(height: 30),
-
+               // reset password button
+               
             Custom_Button_ForgetPassword(
               onPressed: isButtonEnabled
                   ? () {

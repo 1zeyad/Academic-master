@@ -6,7 +6,6 @@ import 'package:acdemy/core/utiles/app_color.dart';
 import 'package:acdemy/core/widgets/CustomTextField.dart';
 import 'package:acdemy/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ForgetPasswordViewBody extends StatefulWidget {
@@ -41,6 +40,7 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 20),
+                // Icon back
                 IconArrowBack(
                   text: S.of(context).forgetPassword,
                 ),
@@ -51,7 +51,10 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                       .copyWith(color: TColor.primaryColor),
                 ),
                 const SizedBox(height: 10),
+
+                // Email Feild 
                 CustomTextFormField(
+                  isEmail: true,
                   controller: emailController,
                   onChanged: (value) {
                     setState(() {

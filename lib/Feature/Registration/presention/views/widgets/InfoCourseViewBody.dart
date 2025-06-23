@@ -28,8 +28,9 @@ class InfoCourseViewBody extends StatelessWidget {
           );
         } else if (state is CourseInfoSuccess) {
           return Card(
-            elevation: 5,
+            elevation: 2,
             color: Colors.white,
+            shadowColor: Colors.white,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),

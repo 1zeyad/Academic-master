@@ -16,6 +16,7 @@ class SelectionCoursesViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var courses = context.read<SelctedCoursesCubit>().selectedCourses;
+
     int RegisterHours() {
       int totalHours = 0;
       for (int i = 0; i < courses.length; i++) {

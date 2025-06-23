@@ -20,10 +20,6 @@ class VerifyCodeViewbody extends StatefulWidget {
 }
 
 class _VerifyCodeScreenState extends State<VerifyCodeViewbody> {
-//   void dispose() {
-//   pinController.dispose();
-//   super.dispose();
-// }
   TextEditingController pinController = TextEditingController();
   bool isButtonEnabled = false;
 
@@ -44,6 +40,8 @@ class _VerifyCodeScreenState extends State<VerifyCodeViewbody> {
             style: TextStyle(fontSize: 16),
           ),
           const SizedBox(height: 20),
+
+          // Pin Code Feild
           PinCodeTextField(
             appContext: context,
             length: 4,

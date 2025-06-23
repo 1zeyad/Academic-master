@@ -128,9 +128,9 @@ abstract class Routes {
         pageBuilder: (context, state) => CustomTransitionPage(
           key: state.pageKey,
           child: 
-        id != null ?   CustomButtonNavigationBar() :const  StudentLoginView(), // id != null ?   CustomButtonNavigationBar() : id != null ? BottomBar() :
+    const  StudentLoginView(), // id != null ?   CustomButtonNavigationBar() : id != null ? BottomBar() :
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            return FadeTransition(
+            return FadeTransition(  
               opacity: animation,
               child: child,
             );

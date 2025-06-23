@@ -47,8 +47,8 @@ class _StudentloginViewBodyState extends State<StudentloginViewBody> {
                     padding: const EdgeInsets.only(right: 21, top: 60),
                     child: Image.asset(
                       Assets.ImageLogin,
-                      height: 200,
-                      width: 200,
+                      height: 220,
+                      width: 220,
                     ),
                   ),
                 ),
@@ -105,7 +105,7 @@ class _StudentloginViewBodyState extends State<StudentloginViewBody> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 100),
+                const SizedBox(height: 170),
 
                 Center(
                   child: Custombutton(

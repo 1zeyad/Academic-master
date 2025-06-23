@@ -38,10 +38,11 @@ class Keys {
 
   // static String secondEmail = 'manarraafat1212@gmail.com';
   // static String passwordd = "12345678@Ab";
+  // new password = "12345678@Abb"
 
 // abdoeid2121@gmail.com 
 
-//abdosleem552@gmail.com   a
+//abdosleem552@gmail.com   
 
   static const String otp = "otp";
 }

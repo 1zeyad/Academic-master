@@ -100,7 +100,7 @@ class Name {
     };
   }
 }
-
+// conver to list
 List<AvaliableCourses> parseData(List<dynamic> jsonData) {
   return jsonData.map((e) => AvaliableCourses.fromJson(e)).toList();
 }

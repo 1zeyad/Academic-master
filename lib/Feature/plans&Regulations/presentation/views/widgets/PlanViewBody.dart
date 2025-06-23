@@ -43,6 +43,7 @@ class _PlanViewBodyState extends State<PlanViewBody> {
         }
       },
       builder: (context, state) {
+         
         if (state is PlanSuccess) {
           final data = state.Plans;
           final levels = data.map((e) => e.level).toSet().toList()..sort();
@@ -52,7 +53,7 @@ class _PlanViewBodyState extends State<PlanViewBody> {
               : data.where((e) => e.level == selectedLevel).toList();
 
           return Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
             child: Column(
               children: [
                 // Dropdown List
@@ -84,6 +85,7 @@ class _PlanViewBodyState extends State<PlanViewBody> {
                       selectedLevel = value;
                     });
                   },
+                  //  section Dropdown
                   items: levels.map((level) {
                     return DropdownMenuItem<int>(
                       value: level,
@@ -92,10 +94,11 @@ class _PlanViewBodyState extends State<PlanViewBody> {
                   }).toList(),
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
 
                 if (filteredData.isNotEmpty)
                   Expanded(
+                    // build semseter
                     child: ListView.builder(
                       itemCount: filteredData.length,
                       itemBuilder: (context, index) {
@@ -107,6 +110,7 @@ class _PlanViewBodyState extends State<PlanViewBody> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
+                          ////////////////////////////////////////////////////////////////
                           child: ExpansionTile(
                             title: Text(
                                 "${getSemesterName(context, semesterData.semester)}"),
@@ -114,7 +118,7 @@ class _PlanViewBodyState extends State<PlanViewBody> {
                               SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
                                 child: DataTable(
-                                  columnSpacing: 20,
+                                  columnSpacing: 40,
                                   columns: [
                                     DataColumn(label: Text(S.of(context).code)),
                                     DataColumn(label: Text(S.of(context).name)),
@@ -127,6 +131,8 @@ class _PlanViewBodyState extends State<PlanViewBody> {
                                         label: Text(
                                             S.of(context).practical_hours)),
                                   ],
+
+                                  // build rows Table
                                   rows: semesterData.courses
                                       .map<DataRow>((course) {
                                     return DataRow(

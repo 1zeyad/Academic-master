@@ -27,7 +27,7 @@ class _HomeViewState extends State<HomeView> {
     notificationSubscription =
         LocaNotificationServices.streamController.stream.listen(
       (notificationResponse) {
-    
+     
         if (notificationResponse.payload == 'REGISTRATION') {
           GoRouter.of(context).push(Registrationview.routeName);
         }

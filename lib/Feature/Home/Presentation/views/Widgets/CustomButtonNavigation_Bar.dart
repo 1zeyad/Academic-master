@@ -92,8 +92,8 @@ class _CustomButtonNavigationBarState extends State<CustomButtonNavigationBar> {
               InkWell(
                 onTap: () async {
                   await CacheHelper.clearData();
-                  resetCubits(context);
-                    await FirebaseMessaging.instance.deleteToken();
+                  await resetCubits(context);
+                 
 
                   GoRouter.of(context).go(StudentLoginView.routename);
                 },
@@ -111,7 +111,7 @@ class _CustomButtonNavigationBarState extends State<CustomButtonNavigationBar> {
     );
   }
 
-  void resetCubits(BuildContext context) {
+ Future resetCubits(BuildContext context) async{
     context.read<MyCoursesCubit>().resetState();
     context.read<UpdateAvaliableCoursesCubit>().resetState();
     context.read<PersonalInfoCubit>().resetState();

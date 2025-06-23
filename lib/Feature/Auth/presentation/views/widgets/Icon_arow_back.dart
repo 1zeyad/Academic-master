@@ -5,6 +5,7 @@ import 'package:acdemy/core/utiles/Text_style.dart';
 import 'package:acdemy/core/utiles/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 //class IconArrowBack extends StatelessWidget  sss
 class IconArrowBack extends StatelessWidget {
   const IconArrowBack({
@@ -41,7 +42,9 @@ class IconArrowBack extends StatelessWidget {
             },
           ),
         ),
-        const SizedBox(width: 20),
+        const SizedBox(
+          width:1,
+        ),
         Expanded(
           child: Center(
             child: Text(
@@ -90,7 +93,7 @@ class IconArrowBack_NewPassword extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          width: 65,
+          width: 85,
         ),
         Text(text,
             style: TTextstyle.bold16.copyWith(color: TColor.primaryColor))

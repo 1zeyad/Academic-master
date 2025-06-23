@@ -23,7 +23,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       elevation: 1,
       child: Container(
         width: double.infinity,
-        height: 55,
+        height: 70,
         decoration: const BoxDecoration(
           color: Colors.white,
           boxShadow: [

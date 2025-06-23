@@ -15,49 +15,30 @@ class RegulationViewBody extends StatefulWidget {
 
 class _RegulationViewBodyState extends State<RegulationViewBody> {
   String? selectedSection;
-  var Regulation_data;
+  Map<String, dynamic>? regulationData;
+
   String _getTranslatedKey(String key) {
     switch (key) {
-      case 'maxRegistrationHours':
-        return S.of(context).maxRegistrationHours;
-      case 'normalRegistrationHours':
-        return S.of(context).normalRegistrationHours;
-      case 'minRegistrationHours':
-        return S.of(context).minRegistrationHours;
-      case 'gpaForMaxHours':
-        return S.of(context).gpaForMaxHours;
-      case 'summerTermHours':
-        return S.of(context).summerTermHours;
-      case 'regulationHours':
-        return S.of(context).regulationHours;
-      case 'levelsCount':
-        return S.of(context).levelsCount;
-      case 'semestersWithoutGpaRules':
-        return S.of(context).semestersWithoutGpaRules;
-      case 'mandatoryHours':
-        return S.of(context).mandatoryHours;
-      case 'optionalHours':
-        return S.of(context).optionalHours;
-      case 'requiredHours':
-        return S.of(context).requiredHours;
-      case 'creditHours':
-        return S.of(context).creditHours;
-      case 'maxRetakeGrade':
-        return S.of(context).maxRetakeGrade;
-      case 'maxRetakeCourses':
-        return S.of(context).maxRetakeCourses;
-      case 'maxConsecutiveWarnings':
-        return S.of(context).maxConsecutiveWarnings;
-      case 'maxYearsLevelOne':
-        return S.of(context).maxYearsLevelOne;
-      case 'minGpaForGraduation':
-        return S.of(context).minGpaForGraduation;
-      case 'gradProjectRequirements':
-        return S.of(context).gradProjectRequirements;
-      case 'trainingRequirements':
-        return S.of(context).trainingRequirements;
-      default:
-        return key;
+      case 'maxRegistrationHours': return S.of(context).maxRegistrationHours;
+      case 'normalRegistrationHours': return S.of(context).normalRegistrationHours;
+      case 'minRegistrationHours': return S.of(context).minRegistrationHours;
+      case 'gpaForMaxHours': return S.of(context).gpaForMaxHours;
+      case 'summerTermHours': return S.of(context).summerTermHours;
+      case 'regulationHours': return S.of(context).regulationHours;
+      case 'levelsCount': return S.of(context).levelsCount;
+      case 'semestersWithoutGpaRules': return S.of(context).semestersWithoutGpaRules;
+      case 'mandatoryHours': return S.of(context).mandatoryHours;
+      case 'optionalHours': return S.of(context).optionalHours;
+      case 'requiredHours': return S.of(context).requiredHours;
+      case 'creditHours': return S.of(context).creditHours;
+      case 'maxRetakeGrade': return S.of(context).maxRetakeGrade;
+      case 'maxRetakeCourses': return S.of(context).maxRetakeCourses;
+      case 'maxConsecutiveWarnings': return S.of(context).maxConsecutiveWarnings;
+      case 'maxYearsLevelOne': return S.of(context).maxYearsLevelOne;
+      case 'minGpaForGraduation': return S.of(context).minGpaForGraduation;
+      case 'gradProjectRequirements': return S.of(context).gradProjectRequirements;
+      case 'trainingRequirements': return S.of(context).trainingRequirements;
+      default: return key;
     }
   }
 
@@ -80,6 +61,7 @@ class _RegulationViewBodyState extends State<RegulationViewBody> {
   @override
   Widget build(BuildContext context) {
     final sectionNames = getSectionNames(context);
+
     return BlocConsumer<RegulationCubit, RegulationState>(
       listener: (context, state) {
         if (state is RegulationFailure) {
@@ -88,23 +70,21 @@ class _RegulationViewBodyState extends State<RegulationViewBody> {
       },
       builder: (context, state) {
         if (state is RegulationSuccess) {
-          final regulation = state.regulation as Regulation;
-          Regulation_data = regulation.toMap();
+          if (regulationData == null) {
+            final regulation = state.regulation as Regulation;
+            //convert regulation to Map
+            regulationData = regulation.toMap();
+          }
 
           return Padding(
-            padding:
-                const EdgeInsets.only(top: 20, left: 16, right: 16, bottom: 16),
+            padding: const EdgeInsets.only(top:16,left: 8,right: 8),
             child: Column(
               children: [
                 DropdownButtonFormField<String>(
-                  dropdownColor: Colors.white,
                   isExpanded: true,
                   decoration: InputDecoration(
                     labelText: S.of(context).selectSection,
-                    labelStyle: const TextStyle(
-                      color: TColor.primaryColor,
-                      fontSize: 16,
-                    ),
+                    labelStyle: const TextStyle(color: TColor.primaryColor, fontSize: 16),
                     border: const OutlineInputBorder(),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -112,11 +92,9 @@ class _RegulationViewBodyState extends State<RegulationViewBody> {
                     ),
                   ),
                   value: selectedSection,
+                  // item section
                   items: sectionNames.entries.map((e) {
-                    return DropdownMenuItem(
-                      value: e.key,
-                      child: Text(e.value),
-                    );
+                    return DropdownMenuItem(value: e.key, child: Text(e.value));
                   }).toList(),
                   onChanged: (value) {
                     setState(() {
@@ -124,86 +102,83 @@ class _RegulationViewBodyState extends State<RegulationViewBody> {
                     });
                   },
                 ),
+                
                 const SizedBox(height: 20),
-                if (selectedSection != null)
-                  _buildSectionContent(selectedSection!)
+                if (selectedSection != null && regulationData != null && regulationData!.containsKey(selectedSection))
+                  Expanded(child: buildSectionContent(selectedSection!))
+                else if (selectedSection != null)
+                  const Text("No Data"),
               ],
             ),
           );
         } else if (state is RegulationLoading) {
-          return const Center(
-            child: CircularProgressIndicator(
-              color: TColor.primaryColor,
-            ),
-          );
+          return const Center(child: CircularProgressIndicator(color: TColor.primaryColor));
+        } else if (state is RegulationFailure) {
+          return Center(child: Text(state.errorMessage));
         } else {
-          return Center(
-            child: Text(S.of(context).noData),
-          );
+          return Center(child: Text(S.of(context).noData));
         }
       },
     );
   }
 
-  Widget _buildSectionContent(String key) {
-    final data = Regulation_data[key];
-    final sectionTitle = getSectionNames(context)[key]!;
+  // item section Details
+  Widget buildSectionContent(String key) {
+    final data = regulationData?[key];
+    final sectionTitle = getSectionNames(context)[key] ?? key;
 
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Card(
-          surfaceTintColor: Colors.white,
-          shadowColor: Colors.white,
-          color: Colors.white,
-          margin: const EdgeInsets.only(top: 8),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  sectionTitle,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 18),
-                ),
-                const SizedBox(height: 10),
-                Container(
-                  height: 370,
+    return SizedBox.expand(
+      
+      child: Padding(
+        padding: const EdgeInsets.all(0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // title content 
+            Padding(
+              padding: const EdgeInsets.only(left:6),
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Text(sectionTitle, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20))),
+            ),
+            const SizedBox(height: 10),
+            // content Details
+            Expanded(
+              child: Card(
+                
+                color: Colors.white,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                   child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: _buildDataTable(key, data),
+                    scrollDirection: Axis.horizontal,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: buildDataTable(key, data),
+                    ),
                   ),
                 ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
   }
 
-  Widget _buildDataTable(String key, dynamic data) {
+  Widget buildDataTable(String key, dynamic data) {
     if (data is Map<String, dynamic>) {
-      final columns = <DataColumn>[
-        DataColumn(
-            label: Text(S.of(context).requirements,
-                style: TextStyle(fontWeight: FontWeight.bold))),
-        DataColumn(
-            label: Text(S.of(context).hours,
-                style: TextStyle(fontWeight: FontWeight.bold))),
+      final columns = [
+        DataColumn(label: Text(S.of(context).requirements, style: const TextStyle(fontWeight: FontWeight.bold))),
+        DataColumn(label: Text(S.of(context).hours, style: const TextStyle(fontWeight: FontWeight.bold))),
       ];
       final rows = data.entries.expand((entry) {
         if (entry.value is Map<String, dynamic>) {
           final subMap = entry.value as Map<String, dynamic>;
           return [
             DataRow(cells: [
-              DataCell(Text(_getTranslatedKey(entry.key),
-                  style: const TextStyle(fontWeight: FontWeight.bold))),
-              const DataCell(Text("")),
+              DataCell(Text(_getTranslatedKey(entry.key), style: const TextStyle(fontWeight: FontWeight.bold))),
+              const DataCell(Text("No Data")),
             ]),
             ...subMap.entries.map((subEntry) {
               return DataRow(cells: [
@@ -224,37 +199,28 @@ class _RegulationViewBodyState extends State<RegulationViewBody> {
           ];
         }
       }).toList();
-      return SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: DataTable(columns: columns, rows: rows),
-      );
+      return DataTable(columns: columns, rows: rows);
     } else if (data is List) {
       if (key == "courseGpaRanges") {
-        return SizedBox(
-          height: 700,
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: DataTable(
-              columns: <DataColumn>[
-                DataColumn(label: Text(S.of(context).grade)),
-                DataColumn(label: Text(S.of(context).from)),
-                DataColumn(label: Text(S.of(context).to)),
-                DataColumn(label: Text(S.of(context).gpa)),
-              ],
-              rows: data.map((item) {
-                return DataRow(cells: [
-                  DataCell(Text(item['name'].toString())),
-                  DataCell(Text(item['from'].toString())),
-                  DataCell(Text(item['to'].toString())),
-                  DataCell(Text(item['gpa'].toString())),
-                ]);
-              }).toList(),
-            ),
-          ),
+        return DataTable(
+          columns: [
+            DataColumn(label: Text(S.of(context).grade)),
+            DataColumn(label: Text(S.of(context).from)),
+            DataColumn(label: Text(S.of(context).to)),
+            DataColumn(label: Text(S.of(context).gpa)),
+          ],
+          rows: data.map((item) {
+            return DataRow(cells: [
+              DataCell(Text(item['name'].toString())),
+              DataCell(Text(item['from'].toString())),
+              DataCell(Text(item['to'].toString())),
+              DataCell(Text(item['gpa'].toString())),
+            ]);
+          }).toList(),
         );
       } else if (key == "cumGpaRanges") {
         return DataTable(
-          columns: <DataColumn>[
+          columns: [
             DataColumn(label: Text(S.of(context).grade)),
             DataColumn(label: Text(S.of(context).from)),
             DataColumn(label: Text(S.of(context).to)),
@@ -269,7 +235,7 @@ class _RegulationViewBodyState extends State<RegulationViewBody> {
         );
       } else if (key == "levels") {
         return DataTable(
-          columns: <DataColumn>[
+          columns: [
             DataColumn(label: Text(S.of(context).level)),
             DataColumn(label: Text(S.of(context).hourRequirements)),
           ],
@@ -282,7 +248,6 @@ class _RegulationViewBodyState extends State<RegulationViewBody> {
         );
       }
     }
-
     return const SizedBox.shrink();
   }
 }

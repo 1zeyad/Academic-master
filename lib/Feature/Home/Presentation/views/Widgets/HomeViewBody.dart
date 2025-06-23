@@ -30,14 +30,15 @@ class HomeViewBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Column(
         children: [
-          const SizedBox(height: 30),
+          const SizedBox(height: 35),
           // personal info
           const InfoPersonal(),
-          const SizedBox(height: 30),
+
+          const SizedBox(height: 25),
           Container(
             color: Colors.white,
             child: GridView.count(
-              childAspectRatio: 1/1.1,
+              childAspectRatio: 1 / 1.1,
               crossAxisCount: 3,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -57,7 +58,7 @@ class HomeViewBody extends StatelessWidget {
                   iconColor: Colors.white,
                   textColor: Colors.white,
                   onTap: () {
-                    // context.read<TermGradesCubit>().getTermGrades();
+                    
                     GoRouter.of(context).push(TermGradesView.routeName);
                   },
                 ),
@@ -139,6 +140,7 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
+
 // Home Item Registration
 class HomeItemRegistration extends StatelessWidget {
   const HomeItemRegistration({

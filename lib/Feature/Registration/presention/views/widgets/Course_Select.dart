@@ -19,7 +19,7 @@ class CourseSelcet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 5),
+        const SizedBox(height: 6),
         Container(
           color: Colors.white,
           // height: 65,
@@ -31,7 +31,7 @@ class CourseSelcet extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
               child: Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                
                   children: [
                     Expanded(
                       child: Text(

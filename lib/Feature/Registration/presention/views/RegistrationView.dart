@@ -1,4 +1,3 @@
-
 import 'package:acdemy/Feature/Home/Presentation/views/Widgets/CustomButtonNavigation_Bar.dart';
 import 'package:acdemy/Feature/Registration/presention/views/widgets/Custom_Bottom_Registration_NavigationBar.dart';
 import 'package:acdemy/Feature/Registration/presention/views/widgets/RegistrationViewBody.dart';
@@ -18,19 +17,16 @@ class Registrationview extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 25),
           onPressed: () {
-          
             GoRouter.of(context).go(CustomButtonNavigationBar.routeName);
           },
         ),
         backgroundColor: TColor.primaryColor,
-        // iconTheme: const IconThemeData(color: Colors.white),
         centerTitle: true,
         title: Text(
           S.of(context).registration,
           style: const TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
-      // drawer: const Custom_Drawer(),
       body: const RegistrationViewBody(),
     );
   }

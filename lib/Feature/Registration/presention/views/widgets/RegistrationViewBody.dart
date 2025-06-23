@@ -11,8 +11,7 @@ class RegistrationViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var courses = context.read<UpdateAvaliableCoursesCubit>().List_courses;
-    return BlocConsumer<UpdateAvaliableCoursesCubit,
-        UpdateAvaliableCoursesState>(
+    return BlocConsumer<UpdateAvaliableCoursesCubit,UpdateAvaliableCoursesState>(
       listener: (context, state) {
         if (state is UpdateAvaliableCoursesFailure) {
           CustomErrorMessage(state.errMessage);
